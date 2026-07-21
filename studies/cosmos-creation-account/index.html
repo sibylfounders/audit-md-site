@@ -1,0 +1,1470 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Audit visuel du parcours Création de compte — Cosmos.">
+  <title>Création de compte Cosmos · Design System Audit</title>
+  <style>
+:root{color-scheme:light;--bg:#f7f7fb;--surface:#fff;--ink:#15172b;--soft:#505572;--line:#d9dcee;--line-strong:#b7bcd8;--primary:#4f46e5;--primary-soft:#eeedff;--danger:#a52c3e;--danger-soft:#fff0f2;--warn:#825900;--warn-soft:#fff7df;--ok:#146b45;--ok-soft:#eaf8f1;--muted:#5b6078;--muted-soft:#f0f1f6;--shadow:0 18px 50px rgba(34,38,76,.08);--measure:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--primary);text-underline-offset:3px}.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:10}.skip:focus{left:8px}.wrap{width:min(calc(100% - 40px),var(--measure));margin:auto}.topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.94)}.topbar .wrap{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{color:var(--ink);font-weight:760;text-decoration:none}.brand span{color:var(--primary)}.nav{display:flex;gap:18px;flex-wrap:wrap}.nav a{font-weight:650;text-decoration:none}.eyebrow{margin:0 0 10px;color:var(--primary);font:750 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}.chip{display:inline-flex;align-items:center;gap:5px;border:1px solid currentColor;border-radius:999px;padding:4px 9px;font:720 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}.chip.ok{color:var(--ok);background:var(--ok-soft)}.chip.warn{color:var(--warn);background:var(--warn-soft)}.chip.danger{color:var(--danger);background:var(--danger-soft)}.chip.muted{color:var(--muted);background:var(--muted-soft)}main{padding:42px 0 80px}.section{margin:0 0 56px;scroll-margin-top:24px}.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,360px);gap:28px;align-items:end;margin-bottom:22px}.section h2{font-size:clamp(1.6rem,3vw,2.35rem);line-height:1.15;letter-spacing:-.025em;margin:0}.section-intro{color:var(--soft);margin:0}.notice{border:1px solid #e4aab4;background:var(--danger-soft);border-radius:14px;padding:18px 20px}.notice strong{color:var(--danger)}.notice p{margin:5px 0 0}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0}.metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}.metric b{display:block;font-size:1.9rem;line-height:1;color:var(--ink)}.metric span{display:block;color:var(--soft);margin-top:8px;font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:0 0 8px;font-size:1.08rem}.card p{margin:0;color:var(--soft)}.card .chip{margin-bottom:12px}.button{display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--primary);color:#fff;text-decoration:none;font-weight:760;border-radius:10px;padding:11px 16px}.button:hover{background:#3f37c9}.proof-chain{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:18px}.proof-chain span{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:.88rem}.proof-chain span:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary);z-index:2}.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.timeline li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px}.timeline b{display:block;margin:5px 0}.timeline p{margin:0;color:var(--soft);font-size:.92rem}.timeline code{font-size:.78rem;color:var(--primary)}.finding{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}.finding summary{cursor:pointer;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 18px;font-weight:740}.finding summary:hover{background:var(--primary-soft)}.finding summary:focus-visible{outline:3px solid var(--primary);outline-offset:-3px}.finding-body{border-top:1px solid var(--line);padding:18px}.finding-body>p{margin-top:0}.finding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fact{background:var(--bg);border-radius:10px;padding:12px}.fact b{display:block;font-size:.82rem;color:var(--soft);text-transform:uppercase;letter-spacing:.04em}.fact p{margin:5px 0 0}.refs{margin:14px 0 0;padding-left:18px;color:var(--soft)}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}.integrity{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.check{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}.check i{font-style:normal;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--danger-soft);color:var(--danger);font-weight:800;flex:none}.check.done i{background:var(--ok-soft);color:var(--ok)}.check b{display:block}.check small{color:var(--soft)}.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}table{border-collapse:collapse;width:100%;min-width:700px}th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}tr:last-child td{border-bottom:0}footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--soft);font-size:.9rem}
+/* --- accueil Audit MD --- */
+.audit-home{background:#f7f7fb;color:#0d0d0f}.audit-home .topbar,.audit-home footer{display:none}.audit-home .skip:focus{z-index:30}.audit-home-shell{width:min(calc(100% - 48px),1160px);margin:0 auto;padding:48px 0 112px}.audit-home-header{display:flex;align-items:center;justify-content:space-between;gap:36px;margin-bottom:26px}.audit-home-brand{display:flex;align-items:center;gap:24px;flex:none}.audit-home-brand h1{margin:0;font-size:38px;line-height:1;font-weight:900;letter-spacing:-.045em}.audit-home-brand a{display:inline-flex;align-items:center;min-height:38px;padding:0 18px;border-radius:999px;background:#e9e9e9;color:#626262;font-size:13px;font-weight:800;letter-spacing:.01em;text-decoration:none;text-transform:uppercase}.audit-home-brand a:hover{background:#dedede;color:#151515}.audit-home-filters{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}.audit-home-category{position:relative;display:inline-flex}.audit-home-category::after{content:'⌄';position:absolute;right:13px;top:50%;color:#777;font-size:15px;line-height:1;pointer-events:none;transform:translateY(-58%)}.audit-home-category select{min-height:42px;padding:0 35px 0 15px;border:1px solid #e1e1e4;border-radius:999px;appearance:none;background:#fff;color:#666;font:750 13px/1 Inter,ui-sans-serif,sans-serif;cursor:pointer}.audit-home-chip{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 9px 0 14px;border:2px solid #191919;border-radius:999px;background:#fff;color:#202020;font:800 13px/1 Inter,ui-sans-serif,sans-serif;cursor:pointer}.audit-home-chip i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#222;color:#fff;font:800 14px/1 Inter,sans-serif}.audit-home-chip[hidden]{display:none}.audit-home-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:72px 38px;align-items:start}.audit-home-card{display:block;min-width:0;color:#0d0d0f;text-decoration:none}.audit-home-card[hidden]{display:none}.audit-home-media{display:block;width:100%;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(14,14,18,.08);transition:transform .22s ease,box-shadow .22s ease}.audit-home-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}.audit-home-card:hover .audit-home-media{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,14,18,.13)}.audit-home-caption{display:grid;gap:2px;margin-top:12px}.audit-home-caption strong{font-size:17px;line-height:1.18;font-weight:900;letter-spacing:-.015em}.audit-home-caption>span{font-size:16px;line-height:1.3}.audit-home-placeholder{display:grid;width:100%;height:100%;place-items:center;background:linear-gradient(145deg,#fff,#ececf2);color:#c4c4ca}.audit-home-placeholder b{font-size:clamp(42px,6vw,72px);line-height:1;font-weight:900}.audit-home-empty{padding:80px 0;text-align:center;color:#777;font-weight:650}.audit-home-empty[hidden]{display:none}
+.audit-home-caption{gap:3px}.audit-home-title{justify-self:start;color:#0d0d0f;text-decoration:none}.audit-home-title strong{font-size:17px;line-height:1.18;font-weight:900;letter-spacing:-.015em}.audit-home-title:hover{text-decoration:underline}.audit-home-caption>.audit-home-kind{font-size:16px;line-height:1.3}.audit-home-modes{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:7px}.audit-home-mode{display:inline-flex;padding:6px 9px;border-radius:999px;background:#e8e8ea;color:#5f5f64;font-size:10px;line-height:1;font-weight:850;letter-spacing:.045em;text-decoration:none;text-transform:uppercase}.audit-home-mode:hover{filter:brightness(.95);text-decoration:underline}.audit-home-mode.mode-fast{background:#e9f4ed;color:#2c6b43}.audit-home-mode.mode-standard{background:#e9edff;color:#344fb1}.audit-home-mode.mode-complete{background:#ececef;color:#55555d}@media(max-width:480px){.audit-home-caption>.audit-home-kind{font-size:13px}.audit-home-mode{font-size:9px}}
+.audit-method .topbar,.audit-method footer{display:none}.audit-method .audit-method-main{padding:60px clamp(32px,7vw,110px) 90px}.audit-method .audit-method-main .method-level{max-width:1100px;margin:0 auto;padding:54px 0 60px;border-bottom:1px solid var(--line)}.audit-method .audit-method-main .method-level:first-child{padding-top:0}.audit-method .audit-method-main .method-level:last-child{border-bottom:0}.audit-method .method-level .section-head{display:block;margin-bottom:24px}.audit-method .method-level .section-intro{max-width:760px;margin-top:10px;font-size:17px;line-height:1.55}.audit-method .method-level .grid{margin-top:18px}.audit-method .method-level .card{box-shadow:none}.audit-method .method-level.standard .card{background:#f0f2ff}.audit-method .method-sidebar-copy{max-width:290px;margin:8px 0 0;color:#646464;font-size:15px;line-height:1.4}
+.sev{font-style:normal;font-weight:800}.sr-sev{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.mode-tab{border:0;border-radius:999px;background:transparent;color:var(--soft);padding:9px 16px;font-weight:780;cursor:pointer}.mode-tab[aria-selected="true"]{background:var(--ink);color:#fff}.thumb[hidden]{display:none}.toggle-screens{border:0;background:transparent;color:var(--primary);padding:4px 0;font-weight:750;cursor:pointer}.toggle-screens:hover{text-decoration:underline}.thumb:focus-visible,.pin:focus-visible,.atab:focus-visible,button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}.strip{display:flex;align-items:center;gap:10px;overflow-x:auto;padding:10px 6px;scroll-snap-type:x proximity}.thumb{flex:none;width:104px;border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:6px;cursor:pointer;display:flex;flex-direction:column;gap:5px;align-items:stretch;scroll-snap-align:center;text-align:center;transition:width .34s cubic-bezier(.22,1,.36,1),transform .34s cubic-bezier(.22,1,.36,1),border-color .2s ease,box-shadow .2s ease}.thumb img{width:100%;aspect-ratio:1180/2676;object-fit:cover;object-position:top;border-radius:7px;background:#eceef3;display:block}.thumb[aria-selected="true"]{width:128px;transform:translateY(-2px);border-color:var(--primary);box-shadow:0 8px 22px rgba(79,70,229,.16),0 0 0 3px var(--primary-soft)}.shot{position:relative;width:100%;max-width:310px;border-radius:18px;overflow:hidden;border:1px solid var(--line-strong);background:#eceef3}.shot img{display:block;width:100%;height:100%;object-fit:cover}.shot .ph{min-height:330px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(145deg,#f6f6fa,#eceef5);color:var(--soft);text-align:center}.shot .ph b{font-size:1rem;color:var(--ink)}.shot .ph span{max-width:90%;font-size:.85rem}.shot .ph small{margin-top:8px;max-width:90%}.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:var(--ink);color:#fff;font:800 13px/1 Inter,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.35);display:grid;place-items:center;padding:0}.pin.tone-fix{background:var(--danger)}.pin.tone-decide{background:var(--warn)}.pin.hl{box-shadow:0 0 0 5px var(--primary-soft),0 2px 8px rgba(0,0,0,.35);border-color:var(--primary)}.prompt-control{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.copy-prompt{border:0;border-radius:9px;background:var(--primary);color:#fff;padding:9px 12px;font-weight:750;cursor:pointer}.copy-prompt:hover{background:#3f37c9}.copy-prompt.copied{background:var(--ok)}.manual-copy{width:100%;min-height:130px;border:1px solid var(--line-strong);border-radius:9px;padding:10px;font:400 .78rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);background:var(--surface);resize:vertical}
+.copy-toast{position:fixed;z-index:100;left:50%;bottom:28px;max-width:min(520px,calc(100vw - 32px));padding:12px 18px;border-radius:999px;background:#121212;color:#fff;font-size:14px;font-weight:700;line-height:1.35;text-align:center;box-shadow:0 12px 34px rgba(0,0,0,.24);opacity:0;pointer-events:none;transform:translate(-50%,14px);transition:opacity .18s ease,transform .18s ease}.copy-toast.show{opacity:1;transform:translate(-50%,0)}.copy-toast.error{background:#8c2435}@media(prefers-reduced-motion:reduce){.copy-toast{transition:none}}.flow-summary{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px}.flow-summary h2{max-width:740px;margin:0;font-size:clamp(1.65rem,3vw,2.55rem);line-height:1.12;letter-spacing:-.035em}
+.atabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.atab{border:1px solid var(--line-strong);background:var(--surface);border-radius:99px;padding:9px 16px;font-weight:750;cursor:pointer;font-size:.95rem;color:var(--ink)}.atab .count{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:99px;background:var(--muted-soft);font-size:.78rem;margin-left:6px;padding:0 5px}.atab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}.atab[aria-selected="true"] .count{background:rgba(255,255,255,.2)}
+.action-row{border-left:4px solid var(--muted)}.action-row.tone-fix{border-left-color:var(--danger)}.action-row.tone-decide{border-left-color:var(--warn)}.action-row>summary{display:flex;align-items:flex-start;gap:12px;padding:14px 16px}.action-row .finding-body{padding:15px 18px}.action-row .finding-body>p{max-width:850px;margin:0 0 9px}
+/* --- étude : composition Figma 24:253 et 24:57 --- */
+.study-page{background:#f7f7fb;color:#121212}.study-page .topbar,.study-page footer{display:none}.study-page .mode-tab{padding:10px 21px;border-radius:32px;background:#e8e8e8;color:#5c5c5c;font-size:16px;line-height:1;font-weight:650;text-transform:uppercase}.study-page .mode-tab[aria-selected="true"]{background:#121212;color:#fff}.study-page .mode-tab:hover{filter:brightness(.96)}.figma-screen-shot{position:relative;width:250px;aspect-ratio:1180/2676;overflow:hidden;background:#e8e8e8}.figma-screen-shot img{display:block;width:100%;height:100%;object-fit:cover}.figma-screen-shot .ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:#646464}.figma-summary-copy>p{margin:0;font-size:16px;line-height:1.5}.study-page .prompt-control{display:flex;align-items:center;gap:8px}.study-page .copy-prompt{border:0;border-radius:32px;background:#e8e8e8;color:#5c5c5c;padding:10px 21px;font-size:13px;line-height:1;font-weight:650;text-transform:uppercase;cursor:pointer}.study-page .copy-prompt:hover{background:#dcdcdc}.study-page .copy-prompt.copied{background:#dff3e5;color:#146b45}.figma-issue-row{display:grid;grid-template-columns:30px minmax(0,1fr);gap:20px;align-items:start;padding:0 0 20px}.figma-issue-row:last-child{padding-bottom:0}.figma-number{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#c9a102;color:#fff;font-size:16px;font-weight:700}.figma-issue-row .figma-number-nopin,.linear-issue .figma-number-nopin{background:transparent;border:2px dashed #b0b0bb;color:#8a8a94;font-size:18px;line-height:1}.figma-issue-row.tone-fix .figma-number-nopin,.linear-issue.tone-fix .figma-number-nopin{background:transparent;border-color:#e50914;color:#e50914}.figma-issue-row.tone-fix .figma-number{background:#e50914}.figma-issue-row.active{outline:3px solid rgba(79,70,229,.22);outline-offset:6px;border-radius:4px}.figma-screen-shot .pin{width:30px;height:30px}.study-page .manual-copy{margin-top:8px}.linear-issue{display:grid;grid-template-columns:30px minmax(0,1fr);gap:18px;align-items:start;padding:18px;background:#f6f6f6;border-radius:14px}.linear-issue.tone-fix .figma-number{background:#e50914}.linear-issue.active{outline:3px solid rgba(79,70,229,.22);outline-offset:3px}.linear-issue-content{min-width:0}.linear-issue-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.linear-issue-head>div:first-child{min-width:0}.linear-issue-head small{display:block;margin-bottom:5px;color:#707070;font-size:11px;font-weight:750}.linear-issue-head strong{display:block;font-size:18px;line-height:1.35}.linear-issue-content>p{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;margin:13px 0 0;font-size:15px;line-height:1.45}.linear-issue-content>p b{color:#666;font-size:12px;text-transform:uppercase;letter-spacing:.04em}.linear-issue-content>p span{color:#242424}.linear-issue-content>p.linear-solution span{font-weight:650}.linear-rule{margin-top:14px}.linear-rule>summary{width:max-content;cursor:pointer;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:2px}.linear-rule ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:7px}.linear-rule li{display:grid;gap:2px;font-size:13px}.linear-rule code{color:#4f46e5}.linear-issue-echo{opacity:.92}.linear-issue-echo .linear-issue-head strong{font-size:15px;font-weight:650}.linear-issue-content>p.linear-echo-note{display:flex;grid-template-columns:none;align-items:center;justify-content:flex-start;gap:6px 12px;flex-wrap:wrap;margin:6px 0 0;color:#6a6a74;font-size:13px;line-height:1.4}.linear-issue-content>p.linear-echo-note span{max-width:56ch}.linear-echo-note .workspace-flow-link{flex:none}.sevchip{display:inline-block;margin-left:10px;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;vertical-align:2px}.sevchip-important{color:#e50914}.sevchip-moderate{color:#a37f00}.sevchip-minor{color:#8a8a94}.workspace-flow-list-keep h3{color:#146b45}.workspace-flow-list-keep li{border-left:3px solid #146b45;padding-left:12px}.flow-keep-note{display:block;margin-top:3px;color:#5c5c64;font-size:12px;line-height:1.4}
+.workspace-audit{background:#f7f7fb;color:#121212}.workspace-audit .audit-workspace{width:100%;min-height:100vh;margin:0;padding:0;display:grid;grid-template-columns:390px minmax(0,1fr)}.workspace-sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;padding:32px 30px 44px;background:#f0f0f6;border-right:1px solid #dedee7}.workspace-back{display:inline-flex;margin-bottom:20px;color:#121212;font-size:38px;line-height:1;text-decoration:none}.workspace-sidebar h1{margin:0;font-size:42px;line-height:1;font-weight:900;letter-spacing:-.04em}.workspace-journey{margin:12px 0 3px;font-size:20px;font-weight:650}.workspace-sidebar>small{display:block;color:#646464;font-size:14px}.workspace-sidebar>small a{color:#646464}.workspace-scorecard{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:20px;align-items:center;margin-top:28px;padding:20px 18px;background:#fff;border-radius:20px}.workspace-scorecard ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}.workspace-scorecard li{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:15px;font-weight:700}.workspace-scorecard li b{color:#646464}.workspace-global-prompt{margin-top:24px}.workspace-global-prompt .prompt-control,.workspace-global-prompt .copy-prompt{width:100%}.workspace-global-prompt .copy-prompt{padding:14px 18px;background:#2857d9;color:#fff;font-size:13px}.workspace-global-prompt .copy-prompt:hover{background:#1947c7}.workspace-guardrails{margin-top:24px;padding-top:18px;border-top:1px solid #d3d3dc}.workspace-guardrails>summary{cursor:pointer;font-size:14px;font-weight:800}.workspace-guardrails ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:14px}.workspace-guardrails li{display:grid;gap:3px}.workspace-guardrails b{font-size:13px;line-height:1.35}.workspace-guardrails p{margin:0;color:#646464;font-size:12px;line-height:1.4}.workspace-main{min-width:0;padding:24px 32px 70px}.workspace-nav{position:sticky;top:0;z-index:5;padding-top:8px;background:rgba(247,247,251,.96)}.workspace-nav-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 8px 10px}.workspace-nav-head strong{font-size:14px}.workspace-nav-head button{padding:7px 12px;border:1px solid #d2d2db;border-radius:999px;background:#fff;color:#50505a;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer}.workspace-nav-head button:hover{border-color:#121212;color:#121212}.workspace-nav-head button:disabled{cursor:default;opacity:.6}.workspace-strip{display:flex;align-items:flex-start;gap:14px;overflow-x:auto;padding:12px 8px 18px;scrollbar-width:none;scroll-snap-type:x proximity}.workspace-strip::-webkit-scrollbar{display:none}.workspace-thumb{flex:0 0 106px;width:106px;padding:0;border:0;background:#fff;cursor:pointer;scroll-snap-align:center;box-shadow:0 5px 14px rgba(0,0,0,.08);overflow:hidden}.workspace-thumb-media{display:block;width:106px;aspect-ratio:1180/2676;overflow:hidden;background:#ececf2}.workspace-thumb-media img,.workspace-thumb-ph{display:block;width:100%;height:100%;object-fit:cover;background:#ececf2}.workspace-thumb-ph{display:grid;place-items:center;color:#777;font:800 14px ui-monospace,Menlo,monospace}.workspace-thumb[aria-selected="true"]{outline:5px solid #121212;outline-offset:3px;box-shadow:0 10px 24px rgba(0,0,0,.22)}.workspace-thumb:focus-visible{outline:5px solid #4f46e5;outline-offset:3px}.workspace-panels{padding-top:24px}.workspace-panel-head{margin:0 0 24px}.workspace-panel-head span{display:block;color:#707070;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.workspace-panel-head h2{margin:6px 0 0;font-size:24px;line-height:1.25}.workspace-stage{display:grid;grid-template-columns:300px minmax(0,1fr);gap:36px;align-items:start}.workspace-stage.no-issues{grid-template-columns:300px}.workspace-figure{margin:0}.workspace-figure .figma-screen-shot{width:300px;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.2)}.workspace-figure figcaption{margin-top:12px;color:#646464;font-size:14px}.workspace-figure figcaption a{color:#646464}.workspace-review-stack{display:grid;gap:18px}.workspace-review{margin-top:0;padding:24px;background:#fff;border-radius:20px}.workspace-review>header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.workspace-review>header h3{margin:0;font-size:19px;text-transform:uppercase}.workspace-review>header .copy-prompt{background:#e8e8e8;color:#5c5c5c}.workspace-issues{display:grid;gap:22px}.workspace-issues .linear-issue{padding:0;background:transparent;border-radius:0;box-shadow:none}.workspace-issues .linear-issue+.linear-issue{padding-top:22px;border-top:1px solid #e2e2e2}.workspace-issues .linear-issue-head .prompt-control{display:none}.workspace-issues .linear-issue-content>p b{color:#666}.workspace-issues .linear-rule>summary{color:#121212}.workspace-action-card{display:block}.workspace-action-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-bottom:16px;border-bottom:1px solid #e2e2e8}.workspace-action-stats span{display:grid;gap:3px;min-width:0}.workspace-action-stats b{font-size:25px;line-height:1;color:#121212}.workspace-action-stats small{color:#646464;font-size:11px;line-height:1.2}.workspace-signal-heading{display:grid;gap:2px;margin:16px 0 11px}.workspace-signal-heading>b{font-size:13px}.workspace-signal-heading>small{color:#777;font-size:10px;line-height:1.3}.workspace-action-card ul{gap:7px}.workspace-action-card li{font-size:13px}.workspace-action-card li b{font-size:12px;font-weight:650}.workspace-action-card li.is-zero{opacity:.5}
+.workspace-modes{display:inline-flex;align-items:center;gap:3px;margin:9px 0 11px;padding:3px;border-radius:999px;background:#dedee5}.workspace-mode{display:inline-flex;padding:7px 10px;border-radius:999px;color:#66666f;font-size:10px;line-height:1;font-weight:850;letter-spacing:.045em;text-decoration:none;text-transform:uppercase}.workspace-mode:hover{background:rgba(255,255,255,.65);color:#121212}.workspace-mode[aria-current="page"]{background:#121212;color:#fff;box-shadow:0 2px 7px rgba(0,0,0,.16)}.workspace-mode:focus-visible{outline:3px solid #4f46e5;outline-offset:2px}
+/* --- synthèse du flow et largeur de lecture --- */
+.workspace-flow-thumb-media{display:grid;width:106px;aspect-ratio:1180/2676;place-items:center;background:#121212;color:#fff;font-size:14px;font-weight:900;letter-spacing:.04em}.workspace-layout-thumb-media{display:grid;width:106px;aspect-ratio:1180/2676;place-items:center;background:#344fb1;color:#fff;font-size:13px;font-weight:900;letter-spacing:.04em}.workspace-layout-block+.workspace-layout-block{margin-top:16px;padding-top:16px;border-top:1px solid #e4e4e8}.workspace-layout-block h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#66666f}.workspace-layout-block ul{list-style:none;margin:0;padding:0}.workspace-review-stack{width:min(100%,900px)}.workspace-flow-panel,.workspace-layout-panel{width:100%}.workspace-flow-summary{padding:32px;background:#fff;border-radius:24px}.workspace-flow-summary>header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}.workspace-flow-summary>header span{color:#707070;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.workspace-flow-summary h2{margin:20px 0 18px;font-size:34px;line-height:1.12;letter-spacing:-.035em}.workspace-flow-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}.workspace-flow-list{padding:24px;background:#fff;border-radius:20px}.workspace-flow-list h3{margin:0 0 18px;font-size:18px;text-transform:uppercase}.workspace-flow-list ul{list-style:none;margin:0;padding:0}.workspace-flow-list li{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:15px 0;border-top:1px solid #e4e4e8}.workspace-flow-list li:first-child{padding-top:0;border-top:0}.workspace-flow-list li:last-child{padding-bottom:0}.workspace-flow-list li div{min-width:0}.workspace-flow-list b{display:block;font-size:15px;line-height:1.35}.workspace-flow-list p{margin:5px 0 0;color:#565660;font-size:13px;line-height:1.45}.workspace-flow-link{flex:none;padding:0;border:0;background:transparent;color:#121212;font:750 12px/1.3 inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}.workspace-flow-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:22px;padding:20px 24px;background:#fff;border-radius:20px}.workspace-flow-links a{font-size:14px;font-weight:750}.workspace-flow-panel>.workspace-guardrails{padding:20px 24px;background:#fff;border:0;border-radius:20px}
+.workspace-thumb .workspace-flow-thumb-media,.workspace-layout-thumb-media{width:100%}.workspace-flow-link{font-family:inherit;font-size:12px;line-height:1.3;font-weight:750}.workspace-flow-recommendation{margin-top:24px;padding:18px 20px;border-radius:16px;background:#eef0ff}.workspace-flow-recommendation strong{display:block;margin-bottom:6px;font-size:13px;text-transform:uppercase}.workspace-flow-recommendation p{margin:0;font-size:16px;line-height:1.5;font-weight:650}
+.workspace-nav-head strong{display:grid;gap:3px}.workspace-nav-head strong small{color:#707078;font-size:11px;font-weight:650}.workspace-thumb-context{display:block;padding:7px 5px;background:#fff;color:#676770;font-size:10px;line-height:1;font-weight:800;letter-spacing:.04em;text-align:center;text-transform:uppercase}.workspace-context{display:block;width:max-content;margin-bottom:6px;padding:4px 7px;border-radius:999px;background:#eeeef3;color:#565661;font-size:10px;line-height:1;font-weight:850;letter-spacing:.035em;text-transform:uppercase}.workspace-context.context-both{background:#e8e7ff;color:#3930a8}.workspace-context.context-mobile{background:#e3f4ec;color:#176c4c}.workspace-context.context-desktop{background:#edf0f5;color:#48536a}
+@media(max-width:720px){.workspace-flow-columns{grid-template-columns:1fr}.workspace-flow-summary{padding:22px}.workspace-flow-summary h2{font-size:27px}.workspace-flow-summary>header{display:block}.workspace-flow-summary>header .prompt-control{margin-top:16px}.workspace-flow-list{padding:20px}}
+/* --- dossier de preuve : même gabarit que les pages d’audit profondes --- */
+.evidence-page .topbar,.evidence-page footer{display:none}.evidence-page .evidence-sidebar h1{font-size:38px}.evidence-sidebar .eyebrow{margin-bottom:12px}.evidence-sidebar-copy{margin:16px 0 0;color:#555864;font-size:14px;line-height:1.5}.evidence-sidebar-status{margin-top:20px}.evidence-sidebar .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:22px 0 0}.evidence-sidebar .metric{padding:14px;border:0;border-radius:14px}.evidence-sidebar .metric b{font-size:24px}.evidence-sidebar .metric span{margin-top:5px;font-size:11px;line-height:1.25}.evidence-nav{margin-top:26px;padding-top:20px;border-top:1px solid #d3d3dc}.evidence-nav strong{display:block;margin-bottom:10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}.evidence-nav a{display:block;padding:5px 0;color:#50505a;font-size:13px;font-weight:650;text-decoration:none}.evidence-nav a:hover{color:#121212;text-decoration:underline}.evidence-main{padding:52px clamp(32px,6vw,96px) 90px}.evidence-main>*{max-width:1100px;margin-left:auto;margin-right:auto}.evidence-main-header{margin-bottom:38px}.evidence-main-header .eyebrow{margin-bottom:9px}.evidence-main-header h2{max-width:850px;margin:0;font-size:clamp(32px,4.4vw,58px);line-height:1.03;letter-spacing:-.045em}.evidence-main-header p{max-width:720px;margin:18px 0 0;color:var(--soft);font-size:17px;line-height:1.55}.evidence-page .section{margin-bottom:64px}.evidence-page .section-head{align-items:start}.evidence-page .card{box-shadow:none}.evidence-page .notice{border-radius:18px}.evidence-page .metrics{box-shadow:none}
+@media(max-width:1050px){.workspace-audit .audit-workspace{grid-template-columns:330px minmax(0,1fr)}.workspace-sidebar{padding:26px 22px 38px}.workspace-main{padding-inline:22px}.workspace-stage{grid-template-columns:260px minmax(0,1fr);gap:26px}.workspace-stage.no-issues{grid-template-columns:260px}.workspace-figure .figma-screen-shot{width:260px}.workspace-thumb,.workspace-thumb-media{width:92px}.workspace-thumb{flex-basis:92px}}
+@media(max-width:1050px){.audit-home-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap-inline:30px}}
+@media(max-width:820px){.audit-home-shell{width:min(calc(100% - 32px),1160px);padding-top:30px}.audit-home-header{align-items:flex-start;flex-direction:column;gap:22px;margin-bottom:30px}.audit-home-filters{justify-content:flex-start}.audit-home-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 22px}}
+@media(max-width:480px){.audit-home-shell{width:min(calc(100% - 24px),1160px);padding-top:24px}.audit-home-brand{gap:14px}.audit-home-brand h1{font-size:30px}.audit-home-brand a{min-height:34px;padding-inline:14px;font-size:11px}.audit-home-filters{gap:8px}.audit-home-category select{max-width:150px}.audit-home-gallery{gap:42px 14px}.audit-home-caption{margin-top:9px}.audit-home-caption strong{font-size:14px}.audit-home-caption>span{font-size:13px}}
+@media(max-width:720px){.study-page .mode-tab{padding:9px 16px;font-size:13px}.figma-issue-row{gap:14px}}
+@media(max-width:720px){.linear-issue{grid-template-columns:26px minmax(0,1fr);gap:12px;padding:14px}.linear-issue .figma-number{width:26px;height:26px;font-size:14px}.linear-issue-head{display:grid}.linear-issue-head strong{font-size:16px}.linear-issue-content>p{grid-template-columns:1fr;gap:3px;font-size:14px}}
+@media(max-width:720px){.workspace-audit .audit-workspace{display:block}.workspace-sidebar{position:relative;height:auto;overflow:visible;padding:24px}.workspace-sidebar h1{font-size:36px}.workspace-scorecard{max-width:420px}.workspace-main{padding:12px 16px 56px}.workspace-strip{top:0;margin-inline:-16px;padding-inline:20px}.workspace-thumb,.workspace-thumb-media{width:76px}.workspace-thumb{flex-basis:76px}.workspace-panels{padding-top:20px}.workspace-panel-head h2{font-size:21px}.workspace-stage,.workspace-stage.no-issues{grid-template-columns:1fr;gap:26px}.workspace-figure{display:flex;flex-direction:column;align-items:center}.workspace-figure .figma-screen-shot{width:min(280px,78vw)}.workspace-review{padding:18px}.workspace-review>header{align-items:flex-start}.workspace-issues .linear-issue{grid-template-columns:26px minmax(0,1fr);gap:12px}.workspace-issues .linear-issue-content>p{grid-template-columns:1fr;gap:3px}.audit-method .audit-method-main{padding:32px 20px 56px}.audit-method .method-sidebar-copy{max-width:620px}.audit-method .audit-method-main .method-level{padding:42px 0 48px}.evidence-page .evidence-sidebar h1{font-size:34px}.evidence-sidebar .metrics{max-width:420px}.evidence-nav{display:none}.evidence-main{padding:34px 20px 64px}.evidence-main-header h2{font-size:36px}.evidence-page .section{margin-bottom:48px}}
+@media(max-width:900px){.shot{margin-inline:auto}}
+@media(max-width:850px){.section-head{grid-template-columns:1fr}.metrics,.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.proof-chain{grid-template-columns:1fr}.proof-chain span:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-15px;transform:translateX(-50%)}}
+@media(max-width:560px){.wrap{width:min(calc(100% - 24px),var(--measure))}.topbar .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.metrics,.grid,.timeline,.finding-grid,.integrity{grid-template-columns:1fr}.section{margin-bottom:42px}.card{box-shadow:none}body{font-size:15.5px}.thumb{width:82px}.thumb[aria-selected="true"]{width:104px}.strip{gap:8px;padding-inline:2px}.shot{max-width:278px}.flow-summary{padding:22px}.flow-summary h2{font-size:1.6rem}.atabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}.atab{flex:none;font-size:.86rem;padding:8px 12px}.copy-prompt{width:100%}.prompt-control{display:grid}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.thumb,.audit-home-media{transition:none}}
+</style>
+</head>
+<body class="study-page workspace-audit">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="../../index.html">Design System <span>Audit</span></a>
+    <nav class="nav" aria-label="Navigation principale"><a href="../../index.html">Études</a><a href="../../methodology.html">Méthode</a></nav>
+  </div></header>
+  <main id="contenu" class="audit-workspace">
+      <aside class="workspace-sidebar">
+    <a class="workspace-back" href="../../index.html" aria-label="Retour aux études">←</a>
+    <h1>COSMOS</h1>
+    <p class="workspace-journey">Création de compte</p>
+    
+    <small>16 écrans analysés · 15 juillet 2026 · <a href="evidence.html">preuves et sources</a></small>
+    <section class="workspace-scorecard workspace-action-card" aria-label="Résultat actionnable de l’audit">
+        <div class="workspace-action-stats">
+          <span><b>6</b><small>à corriger</small></span>
+          <span><b>5</b><small>à vérifier</small></span>
+          <span><b>7/16</b><small>pages à modifier</small></span>
+        </div>
+        <div class="workspace-signal-heading"><b>Thèmes concernés</b><small>Une correction peut toucher plusieurs thèmes.</small></div>
+        <ul><li><span>Utilisabilité</span><b>1 signal</b></li><li><span>Accessibilité</span><b>3 signaux</b></li><li class="is-zero"><span>Parcours</span><b>0 signal</b></li><li><span>Graphisme</span><b>1 signal</b></li><li><span>Contenu</span><b>2 signaux</b></li><li><span>Confiance</span><b>1 signal</b></li></ul>
+      </section>
+    <div class="workspace-global-prompt"><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-all" aria-live="polite">Copier le prompt complet</button>
+    <template id="prompt-workspace-all">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Traite les points prioritaires issus de l’audit du parcours de création de compte de Cosmos :
+- 4 actions localisées à corriger ou tester
+- 2 actions de parcours à corriger ou tester
+- 5 points à vérifier avant modification
+Effectue des changements ciblés et n’invente aucune décision manquante.
+
+1. Unifier la stratégie des boutons Continue
+   Écran(s) : E005, E007, E009
+   Problème : Le bouton « Continue » reste désactivé tant que le champ est vide
+   Pourquoi : La cause de la désactivation reste déductible (champ vide), mais aucun message d’aide n&#039;est disponible lors d’un appui.
+   À faire : Tester le comportement lors d’un appui sur le bouton désactivé dans le produit réel ; si rien ne se passe, passer au bouton actif avec message d&#039;erreur quand on appuie — en cohérence avec l&#039;écran âge (E011) qui montre déjà un bouton principal actif.
+   Terminé quand : Comportement au tap défini et documenté ; une seule stratégie de CTA sur tout le tunnel.
+   Règle : dist/RULES-form.md — Coordination bouton/champs — bouton de soumission actif en permanence, jamais de bouton désactivé comme mécanisme de validation ; dist/RULES-button.md — États — disabled silencieux proscrit : toute désactivation expose sa cause
+
+2. Annoncer la règle du mot de passe dès l&#039;état vide
+   Écran(s) : E007, E008
+   Problème : Les règles du mot de passe ne sont pas affichées avant la saisie
+   Pourquoi : Sur les écrans capturés, la contrainte n&#039;apparaît qu&#039;après saisie.
+   À faire : Afficher « Au moins 8 caractères » dès l&#039;état vide.
+   Terminé quand : La contrainte est lisible dès l&#039;état vide (ou dès le focus, comportement vérifié et documenté).
+   Règle : dist/RULES-creation-compte.md — Identité et moyen d&#039;authentification — contraintes annoncées avant la saisie (WCAG 3.3.2, niveau A) ; dist/RULES-creation-compte-force-mot-de-passe.md — Contraintes annoncées avant la saisie
+
+3. Reporter une partie du profil après la première valeur
+   Écran(s) : parcours entier ou produit réel
+   Problème : Quatre informations de profil sont demandées avant le premier contenu utile
+   Pourquoi : Pour un produit social, pseudo et nom participent à l&#039;identité du compte, et l&#039;âge/les intérêts alimentent la personnalisation — mais aucune de ces quatre demandes n&#039;est manifestement indispensable à la première valeur.
+   À faire : Tester : mesurer l&#039;abandon par étape (l&#039;instrumentation du flow le prévoit) et expérimenter le report d&#039;une partie du profil (nom, âge) après le premier contact avec le fil de contenu.
+   Terminé quand : Abandon par étape instrumenté ; décision report/maintien prise sur ces données.
+   Règle : dist/RULES-creation-compte.md — But — le minimum pour créer, le reste plus tard ; Le minimum viable d&#039;un compte — ne pas demander le nom à l&#039;inscription sauf compte littéralement inutilisable sans ; dist/RULES-creation-compte.md — Risque — champs de profil exigés à l&#039;inscription : sévérité élevée
+
+4. Reporter une partie du profil après la première valeur
+   Écran(s) : parcours entier ou produit réel
+   Problème : Il faut choisir trois centres d’intérêt avant d’accéder au contenu
+   Pourquoi : Le produit force 3 sélections mais les convertit immédiatement en valeur visible (onglets du fil de contenu).
+   À faire : Tester une variante avec option de passage (« Plus tard ») mesurée sur la rétention à 7 jours, plutôt que trancher sur principe.
+   Terminé quand : Variante avec option de passage testée ; décision fondée sur la rétention mesurée.
+   Règle : dist/RULES-creation-compte.md — L&#039;atterrissage — ne pas empiler après la création les écrans qu&#039;on s&#039;est retenu de mettre à l&#039;inscription ; profilage progressif au fil de l&#039;usage
+
+5. Séparer l&#039;acceptation des CGU de l&#039;information de confidentialité
+   Écran(s) : E002
+   Problème : Le même texte demande d’accepter les CGU et la politique de confidentialité
+   Pourquoi : Le texte assimile l&#039;information de confidentialité à un acte d&#039;acceptation.
+   À faire : Faire relire puis modifier le texte : « you agree to our Terms of Service » d&#039;un côté, « see our Privacy Policy » (information) de l&#039;autre.
+   Terminé quand : Wording validé par le juridique, séparant contrat (CGU) et information (confidentialité).
+   Règle : dist/RULES-creation-compte-consentement.md — Distinguer trois actes — accepter les CGU (contrat) ; prendre connaissance de la politique de confidentialité (information, pas un consentement) ; consentir (finalités facultatives seulement)
+
+6. Foncer les textes gris et le vert de confirmation
+   Écran(s) : E005, E013, E002, E007, E011
+   Problème : Plusieurs textes sont trop peu contrastés pour être lus facilement
+   Pourquoi : Sur le rendu capturé, plusieurs textes fonctionnels (sous-titres explicatifs, mention légale, confirmation de disponibilité) sont sous 4,5:1.
+   À faire : Corriger après vérification sur le produit réel : foncer le gris des textes secondaires et le vert de confirmation pour atteindre 4,5:1.
+   Terminé quand : Contre-mesure faite sur le produit réel ; tous les textes fonctionnels atteignent 4,5:1.
+   Règle : dist/RULES-color.md — Contraste — seuils testés : 4.5:1 texte courant (WCAG 1.4.3) ; dist/RULES-accessibility.md — Qui porte quoi — contraste : RULES-color
+
+7. Seuil de 8 caractères sous le minimum NIST si le mot de passe est le seul facteur
+   Écran(s) : E008
+   Problème : Huit caractères peuvent être insuffisants si aucun second facteur ne protège le compte
+   Pourquoi : La conformité dépend de l&#039;existence d&#039;une double authentification, non observable dans la pellicule.
+   À faire : Vérifier si Cosmos propose une authentification multifacteur ; sans double authentification, relever le minimum vers 15 caractères conformément à NIST SP 800-63B-4.
+   Terminé quand : Décision documentée : MFA confirmée (8 acceptable) ou minimum relevé vers 15.
+   Règle : dist/RULES-creation-compte-force-mot-de-passe.md — NIST SP 800-63B-4 — 15 caractères en facteur unique, 8 acceptés seulement avec MFA
+
+8. Unifier la stratégie des boutons Continue
+   Écran(s) : E011, E012
+   Problème : L’écran affiche « 25 » comme un exemple, mais le bouton « Continue » est déjà actif
+   Pourquoi : Un exemple affiché dans le champ qui imite une valeur plausible (« 25 ») sur un écran sans label de champ, et une stratégie de bouton principal incohérente avec le reste du parcours.
+   À faire : Vérifier le comportement réel (que se passe-t-il si on tape Continue sur E011 sans saisir ?) ; unifier la stratégie de bouton principal sur tout le tunnel ; ne pas utiliser une valeur plausible comme exemple affiché dans le champ d&#039;un champ numérique.
+   Terminé quand : Comportement réel de l&#039;écran âge vérifié ; placeholder non ambigu ; stratégie CTA unifiée.
+   Règle : dist/RULES-input.md — Contextes — label toujours visible, jamais en placeholder seul ; états [default, focus, filled] ; dist/RULES-form.md — Coordination bouton/champs — stratégie unique par produit
+
+9. Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+   Écran(s) : E009, E014, E007, E011, E013
+   Problème : Le bouton Retour disparaît sur certains écrans
+   Pourquoi : L&#039;incohérence est visible mais peut être un effet du cadrage des captures.
+   À faire : Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+   Terminé quand : Retour présent (ou absence justifiée) à chaque étape ; saisie conservée à l&#039;aller-retour.
+   Règle : dist/RULES-creation-compte.md — Machine à états du parcours — retour sans perte ; la mécanique multi-écran appartient à form-multi-step
+
+10. Reporter une partie du profil après la première valeur
+   Écran(s) : parcours entier ou produit réel
+   Problème : La création du compte est répartie sur six écrans alors que les informations essentielles pourraient être regroupées
+   Pourquoi : Tension assumée entre deux doctrines documentées (single-screen vs one-thing-per-page).
+   À faire : Ne pas refondre le découpage sur principe ; traiter d&#039;abord F06 (reporter des demandes), le nombre d&#039;écrans suivra mécaniquement.
+   Terminé quand : Décision d&#039;architecture documentée, prise après traitement de F06.
+   Règle : dist/RULES-creation-compte.md — Le squelette du parcours — pour la majorité des produits grand public, l&#039;inscription e-mail tient sur un seul écran ; la multiplication d&#039;étapes est presque toujours un symptôme de champs à reporter
+
+11. Âge exact demandé en champ libre : minimisation et age-gating non arbitrés visiblement
+   Écran(s) : E011, E012
+   Problème : L’application demande l’âge exact sans expliquer s’il est indispensable
+   Pourquoi : La donnée demandée (âge exact) excède visiblement les deux finalités possibles.
+   À faire : Clarifier la finalité (personnalisation vs seuil légal), réduire la donnée demandée en conséquence, et documenter le parcours sous le seuil d&#039;âge.
+   Terminé quand : Finalité de l&#039;âge clarifiée avec le juridique ; donnée réduite en conséquence.
+   Règle : dist/RULES-creation-compte-consentement.md — Vérification d&#039;âge sobre et minimisation — ne pas stocker plus que nécessaire ; dist/RULES-creation-compte.md — Le minimum viable d&#039;un compte — tout le reste est du profil
+
+MARCHE À SUIVRE
+1. Repère les implémentations concernées et annonce les fichiers que tu prévois de modifier.
+2. Applique uniquement les constats classés « corriger », avec le changement minimal nécessaire.
+3. Pour chaque constat « tester », obtiens d’abord une preuve ; ne transforme pas une hypothèse en changement produit.
+4. Pour chaque constat « vérifier » ou « arbitrage humain », expose l’information ou la décision manquante sans modifier le produit.
+5. Vérifie les états voisins et termine par un résumé des changements, tests, décisions en attente et blocages.
+
+N’invente aucune décision produit manquante. Si une correction ne peut pas être appliquée avec certitude, arrête-toi sur ce point et explique ce qui manque.</template>
+  </div></div>
+    
+  </aside>
+      <section class="workspace-main" aria-label="Pages auditées">
+        <div class="workspace-nav"><div class="workspace-nav-head"><strong>7 pages à modifier</strong><button type="button" id="workspace-toggle-all" aria-expanded="false">Afficher tout le flow (16)</button></div><nav class="workspace-strip" role="tablist" aria-label="Naviguer entre les pages"><button type="button" class="workspace-thumb workspace-flow-thumb" id="workspace-tab-flow" role="tab" data-workspace-view="flow" aria-controls="workspace-panel-flow" aria-selected="true" tabindex="0" aria-label="Flow complet"><span class="workspace-flow-thumb-media" aria-hidden="true">FLOW</span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E001" role="tab" data-workspace-view="E001" aria-controls="workspace-panel-E001" aria-selected="false" tabindex="-1" aria-label="E001 — Splash visuel plein écran" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">01</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E002" role="tab" data-workspace-view="E002" aria-controls="workspace-panel-E002" aria-selected="false" tabindex="-1" aria-label="E002 — Carrousel d&#039;intro — position 1 (Discover, search, save)"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">02</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E003" role="tab" data-workspace-view="E003" aria-controls="workspace-panel-E003" aria-selected="false" tabindex="-1" aria-label="E003 — Carrousel d&#039;intro — position 3 (Build your world)" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">03</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E004" role="tab" data-workspace-view="E004" aria-controls="workspace-panel-E004" aria-selected="false" tabindex="-1" aria-label="E004 — Carrousel d&#039;intro — position 4 (Cosmos researches images)" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">04</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E005" role="tab" data-workspace-view="E005" aria-controls="workspace-panel-E005" aria-selected="false" tabindex="-1" aria-label="E005 — Saisie e-mail — état vide"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">05</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E006" role="tab" data-workspace-view="E006" aria-controls="workspace-panel-E006" aria-selected="false" tabindex="-1" aria-label="E006 — Saisie e-mail — état rempli" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">06</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E007" role="tab" data-workspace-view="E007" aria-controls="workspace-panel-E007" aria-selected="false" tabindex="-1" aria-label="E007 — Choix du mot de passe — état vide"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">07</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E008" role="tab" data-workspace-view="E008" aria-controls="workspace-panel-E008" aria-selected="false" tabindex="-1" aria-label="E008 — Choix du mot de passe — état rempli (règle 8 caractères affichée)"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">08</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E009" role="tab" data-workspace-view="E009" aria-controls="workspace-panel-E009" aria-selected="false" tabindex="-1" aria-label="E009 — Nom complet — état vide"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">09</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E010" role="tab" data-workspace-view="E010" aria-controls="workspace-panel-E010" aria-selected="false" tabindex="-1" aria-label="E010 — Nom complet — état rempli" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">10</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E011" role="tab" data-workspace-view="E011" aria-controls="workspace-panel-E011" aria-selected="false" tabindex="-1" aria-label="E011 — Âge — valeur « 25 » affichée en gris"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">11</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E012" role="tab" data-workspace-view="E012" aria-controls="workspace-panel-E012" aria-selected="false" tabindex="-1" aria-label="E012 — Âge — valeur « 25 » affichée en noir" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">12</span></span></button><button type="button" class="workspace-thumb workspace-needs-correction" id="workspace-tab-E013" role="tab" data-workspace-view="E013" aria-controls="workspace-panel-E013" aria-selected="false" tabindex="-1" aria-label="E013 — Pseudo — état rempli, disponibilité confirmée"><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">13</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E014" role="tab" data-workspace-view="E014" aria-controls="workspace-panel-E014" aria-selected="false" tabindex="-1" aria-label="E014 — Intérêts — 0/3 sélectionnés" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">14</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E015" role="tab" data-workspace-view="E015" aria-controls="workspace-panel-E015" aria-selected="false" tabindex="-1" aria-label="E015 — Intérêts — 3/3 sélectionnés" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">15</span></span></button><button type="button" class="workspace-thumb workspace-optional" id="workspace-tab-E016" role="tab" data-workspace-view="E016" aria-controls="workspace-panel-E016" aria-selected="false" tabindex="-1" aria-label="E016 — Feed d&#039;accueil — coach mark « Hold elements to save »" hidden><span class="workspace-thumb-media"><span class="workspace-thumb-ph" aria-hidden="true">16</span></span></button></nav></div>
+        <div class="workspace-panels"><section class="workspace-panel workspace-flow-panel" id="workspace-panel-flow" role="tabpanel" aria-labelledby="workspace-tab-flow">
+    <section class="workspace-flow-summary">
+      <header><span>Flow complet</span></header>
+      <h2>Le parcours va au bout, mais demande trop d&#039;informations avant de montrer son intérêt.</h2>
+      <div class="figma-summary-copy"><p>La création du compte peut être terminée et mène bien au fil de contenu. Avant d’y accéder, il faut encore renseigner son nom, son âge, son pseudo et trois centres d’intérêt. Nous ne savons pas encore si toutes ces informations sont nécessaires. Le fil de contenu existe déjà sans personnalisation complète. Ces étapes supplémentaires peuvent retarder l’accès au contenu et augmenter les abandons. Il faut le mesurer dans le produit.</p></div>
+      <div class="workspace-flow-recommendation"><strong>Ce que je recommande</strong><p>Demander une partie du profil après l’accès au premier contenu utile.</p></div>
+    </section>
+    
+    <div class="workspace-flow-columns">
+      <section class="workspace-flow-list workspace-flow-list-fix"><h3>À corriger</h3><ul><li><div><b>Quatre informations de profil sont demandées avant le premier contenu utile</b></div><a class="workspace-flow-link" href="evidence.html#F06">Voir la règle</a><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-flowlist-F06" aria-live="polite">Prompt</button>
+    <template id="prompt-flowlist-F06">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Teste cette hypothèse avant de modifier le parcours audité de création de compte : Reporter une partie du profil après la première valeur
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : ensemble du parcours ou comportement à vérifier sur le produit réel
+- Problème : Quatre informations de profil sont demandées avant le premier contenu utile
+- Pourquoi : Pour un produit social, pseudo et nom participent à l&#039;identité du compte, et l&#039;âge/les intérêts alimentent la personnalisation — mais aucune de ces quatre demandes n&#039;est manifestement indispensable à la première valeur.
+
+CE QUE TU DOIS FAIRE
+Tester : mesurer l&#039;abandon par étape (l&#039;instrumentation du flow le prévoit) et expérimenter le report d&#039;une partie du profil (nom, âge) après le premier contact avec le fil de contenu.
+
+CRITÈRE DE RÉUSSITE
+Abandon par étape instrumenté ; décision report/maintien prise sur ces données.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — But — le minimum pour créer, le reste plus tard ; Le minimum viable d&#039;un compte — ne pas demander le nom à l&#039;inscription sauf compte littéralement inutilisable sans
+- dist/RULES-creation-compte.md — Risque — champs de profil exigés à l&#039;inscription : sévérité élevée
+
+MARCHE À SUIVRE
+1. Repère l’implémentation et les états concernés dans le projet ouvert.
+2. Décris le test minimal permettant de confirmer ou d’infirmer l’hypothèse.
+3. Exécute les vérifications possibles sans modifier le comportement produit.
+4. Conclus clairement : hypothèse confirmée, infirmée ou encore indécidable.
+5. N’applique une modification que si le test la justifie sans ambiguïté ; sinon, indique la décision ou la preuve qui manque.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></li><li><div><b>Il faut choisir trois centres d’intérêt avant d’accéder au contenu</b></div><a class="workspace-flow-link" href="evidence.html#F07">Voir la règle</a><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-flowlist-F07" aria-live="polite">Prompt</button>
+    <template id="prompt-flowlist-F07">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Teste cette hypothèse avant de modifier le parcours audité de création de compte : Reporter une partie du profil après la première valeur
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : ensemble du parcours ou comportement à vérifier sur le produit réel
+- Problème : Il faut choisir trois centres d’intérêt avant d’accéder au contenu
+- Pourquoi : Le produit force 3 sélections mais les convertit immédiatement en valeur visible (onglets du fil de contenu).
+
+CE QUE TU DOIS FAIRE
+Tester une variante avec option de passage (« Plus tard ») mesurée sur la rétention à 7 jours, plutôt que trancher sur principe.
+
+CRITÈRE DE RÉUSSITE
+Variante avec option de passage testée ; décision fondée sur la rétention mesurée.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — L&#039;atterrissage — ne pas empiler après la création les écrans qu&#039;on s&#039;est retenu de mettre à l&#039;inscription ; profilage progressif au fil de l&#039;usage
+
+MARCHE À SUIVRE
+1. Repère l’implémentation et les états concernés dans le projet ouvert.
+2. Décris le test minimal permettant de confirmer ou d’infirmer l’hypothèse.
+3. Exécute les vérifications possibles sans modifier le comportement produit.
+4. Conclus clairement : hypothèse confirmée, infirmée ou encore indécidable.
+5. N’applique une modification que si le test la justifie sans ambiguïté ; sinon, indique la décision ou la preuve qui manque.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></li></ul></section>
+      <section class="workspace-flow-list workspace-flow-list-check"><h3>À vérifier</h3><ul><li><div><b>La création du compte est répartie sur six écrans alors que les informations essentielles pourraient être regroupées</b></div><a class="workspace-flow-link" href="evidence.html#F12">Voir la règle</a><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-flowlist-F12" aria-live="polite">Prompt</button>
+    <template id="prompt-flowlist-F12">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Reporter une partie du profil après la première valeur
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : ensemble du parcours ou comportement à vérifier sur le produit réel
+- Problème : La création du compte est répartie sur six écrans alors que les informations essentielles pourraient être regroupées
+- Pourquoi : Tension assumée entre deux doctrines documentées (single-screen vs one-thing-per-page).
+
+CE QUE TU DOIS FAIRE
+Ne pas refondre le découpage sur principe ; traiter d&#039;abord F06 (reporter des demandes), le nombre d&#039;écrans suivra mécaniquement.
+
+CRITÈRE DE RÉUSSITE
+Décision d&#039;architecture documentée, prise après traitement de F06.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Le squelette du parcours — pour la majorité des produits grand public, l&#039;inscription e-mail tient sur un seul écran ; la multiplication d&#039;étapes est presque toujours un symptôme de champs à reporter
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></li></ul></section>
+      <section class="workspace-flow-list workspace-flow-list-keep"><h3>À préserver</h3><ul><li><div><b>Un seul champ de mot de passe avec bascule d&#039;affichage</b><small class="flow-keep-note">Préserver le champ unique et la bascule ; vérifier sur produit réel que le collage et les gestionnaires de mots de passe sont autorisés.</small></div></li><li><div><b>Disponibilité du pseudo confirmée par le texte, pas par la couleur seule</b><small class="flow-keep-note">Préserver le mécanisme ; corriger uniquement la teinte (F09).</small></div></li><li><div><b>Atterrissage direct sur le fil de contenu personnalisé avec coach mark contextuel</b><small class="flow-keep-note">Préserver tel quel ; utiliser cet écran comme référence interne pour d&#039;autres flows.</small></div></li></ul></section>
+    </div>
+    <nav class="workspace-flow-links" aria-label="Approfondir l’audit"><a href="evidence.html">Consulter les preuves</a><a href="evidence.html#findings">Comprendre les règles mobilisées</a></nav>
+    <details class="workspace-guardrails">
+    <summary>À ne pas faire (4)</summary>
+    <ul><li><b>Ajouter un champ « confirmez le mot de passe »</b><p>Anti-pattern documenté ; la bascule d&#039;affichage existante fait mieux (F01).</p></li><li><b>Refondre le découpage un-écran-par-question sur principe</b><p>Deux doctrines documentées s&#039;opposent (single-screen vs one-thing-per-page) ; le levier réel est le nombre de demandes (F06), pas leur découpage (F12). Traiter F06 d&#039;abord.</p></li><li><b>Ajouter un indicateur de force du mot de passe par réflexe</b><p>Le référentiel le rend optionnel et exige qu&#039;il soit honnête s&#039;il existe ; la blocklist (F05) protège davantage qu&#039;une barre de couleur.</p></li><li><b>Éclaircir les exemples affichés dans les champs ou le libellé du bouton désactivé au nom du contraste</b><p>Composants exemptés du seuil AA (inactifs / redondants) ; la correction de F09 vise les textes fonctionnels uniquement.</p></li></ul>
+  </details>
+  </section><section class="workspace-panel" id="workspace-panel-E001" role="tabpanel" aria-labelledby="workspace-tab-E001" hidden>
+      <header class="workspace-panel-head"><div><span>Page 01</span><h2>Splash visuel plein écran</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Splash visuel plein écran</span></div></div><figcaption><a href="evidence.html#O01">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E002" role="tabpanel" aria-labelledby="workspace-tab-E002" hidden>
+      <header class="workspace-panel-head"><div><span>Page 02</span><h2>Carrousel d&#039;intro — position 1 (Discover, search, save)</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Carrousel d&#039;intro — position 1 (Discover, search, save)</span></div></div><figcaption><a href="evidence.html#O02">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-fix"><header><h3>À corriger</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E002-fix" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E002-fix">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Séparer l&#039;acceptation des CGU de l&#039;information de confidentialité
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E002 — Carrousel d&#039;intro — position 1 (Discover, search, save)
+- Problème : Le même texte demande d’accepter les CGU et la politique de confidentialité
+- Pourquoi : Le texte assimile l&#039;information de confidentialité à un acte d&#039;acceptation.
+
+CE QUE TU DOIS FAIRE
+Faire relire puis modifier le texte : « you agree to our Terms of Service » d&#039;un côté, « see our Privacy Policy » (information) de l&#039;autre.
+
+CRITÈRE DE RÉUSSITE
+Wording validé par le juridique, séparant contrat (CGU) et information (confidentialité).
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-consentement.md — Distinguer trois actes — accepter les CGU (contrat) ; prendre connaissance de la politique de confidentialité (information, pas un consentement) ; consentir (finalités facultatives seulement)
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-fix" id="sf-E002-F08" data-finding="F08" data-screen="E002">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>CGU et politique de confidentialité fusionnées dans « you agree »</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E002-F08" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E002-F08">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Séparer l&#039;acceptation des CGU de l&#039;information de confidentialité
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E002 — Carrousel d&#039;intro — position 1 (Discover, search, save)
+- Problème : Le même texte demande d’accepter les CGU et la politique de confidentialité
+- Pourquoi : Le texte assimile l&#039;information de confidentialité à un acte d&#039;acceptation.
+
+CE QUE TU DOIS FAIRE
+Faire relire puis modifier le texte : « you agree to our Terms of Service » d&#039;un côté, « see our Privacy Policy » (information) de l&#039;autre.
+
+CRITÈRE DE RÉUSSITE
+Wording validé par le juridique, séparant contrat (CGU) et information (confidentialité).
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-consentement.md — Distinguer trois actes — accepter les CGU (contrat) ; prendre connaissance de la politique de confidentialité (information, pas un consentement) ; consentir (finalités facultatives seulement)
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>Le texte assimile l&#039;information de confidentialité à un acte d&#039;acceptation.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Faire relire puis modifier le texte : « you agree to our Terms of Service » d&#039;un côté, « see our Privacy Policy » (information) de l&#039;autre.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-creation-compte-consentement.md</code><span>Distinguer trois actes — accepter les CGU (contrat) ; prendre connaissance de la politique de confidentialité (information, pas un consentement) ; consentir (finalités facultatives seulement)</span></li></ul></details>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E003" role="tabpanel" aria-labelledby="workspace-tab-E003" hidden>
+      <header class="workspace-panel-head"><div><span>Page 03</span><h2>Carrousel d&#039;intro — position 3 (Build your world)</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Carrousel d&#039;intro — position 3 (Build your world)</span></div></div><figcaption><a href="evidence.html#O03">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E004" role="tabpanel" aria-labelledby="workspace-tab-E004" hidden>
+      <header class="workspace-panel-head"><div><span>Page 04</span><h2>Carrousel d&#039;intro — position 4 (Cosmos researches images)</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Carrousel d&#039;intro — position 4 (Cosmos researches images)</span></div></div><figcaption><a href="evidence.html#O04">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E005" role="tabpanel" aria-labelledby="workspace-tab-E005" hidden>
+      <header class="workspace-panel-head"><div><span>Page 05</span><h2>Saisie e-mail — état vide</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Saisie e-mail — état vide</span></div></div><figcaption><a href="evidence.html#O05">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-fix"><header><h3>À corriger</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E005-fix" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E005-fix">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Foncer les textes gris et le vert de confirmation
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E005 — Saisie e-mail — état vide
+- Problème : Plusieurs textes sont trop peu contrastés pour être lus facilement
+- Pourquoi : Sur le rendu capturé, plusieurs textes fonctionnels (sous-titres explicatifs, mention légale, confirmation de disponibilité) sont sous 4,5:1.
+
+CE QUE TU DOIS FAIRE
+Corriger après vérification sur le produit réel : foncer le gris des textes secondaires et le vert de confirmation pour atteindre 4,5:1.
+
+CRITÈRE DE RÉUSSITE
+Contre-mesure faite sur le produit réel ; tous les textes fonctionnels atteignent 4,5:1.
+
+RÈGLES À RESPECTER
+- dist/RULES-color.md — Contraste — seuils testés : 4.5:1 texte courant (WCAG 1.4.3)
+- dist/RULES-accessibility.md — Qui porte quoi — contraste : RULES-color
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.
+
+---
+
+Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Teste cette hypothèse avant de modifier le parcours audité de création de compte : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E005 — Saisie e-mail — état vide
+- Problème : Le bouton « Continue » reste désactivé tant que le champ est vide
+- Pourquoi : La cause de la désactivation reste déductible (champ vide), mais aucun message d’aide n&#039;est disponible lors d’un appui.
+
+CE QUE TU DOIS FAIRE
+Tester le comportement lors d’un appui sur le bouton désactivé dans le produit réel ; si rien ne se passe, passer au bouton actif avec message d&#039;erreur quand on appuie — en cohérence avec l&#039;écran âge (E011) qui montre déjà un bouton principal actif.
+
+CRITÈRE DE RÉUSSITE
+Comportement au tap défini et documenté ; une seule stratégie de CTA sur tout le tunnel.
+
+RÈGLES À RESPECTER
+- dist/RULES-form.md — Coordination bouton/champs — bouton de soumission actif en permanence, jamais de bouton désactivé comme mécanisme de validation
+- dist/RULES-button.md — États — disabled silencieux proscrit : toute désactivation expose sa cause
+
+MARCHE À SUIVRE
+1. Repère l’implémentation et les états concernés dans le projet ouvert.
+2. Décris le test minimal permettant de confirmer ou d’infirmer l’hypothèse.
+3. Exécute les vérifications possibles sans modifier le comportement produit.
+4. Conclus clairement : hypothèse confirmée, infirmée ou encore indécidable.
+5. N’applique une modification que si le test la justifie sans ambiguïté ; sinon, indique la décision ou la preuve qui manque.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-fix" id="sf-E005-F09" data-finding="F09" data-screen="E005">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>Sous-titre mesuré à 2,7:1</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E005-F09" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E005-F09">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Foncer les textes gris et le vert de confirmation
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E005 — Saisie e-mail — état vide
+- Problème : Plusieurs textes sont trop peu contrastés pour être lus facilement
+- Pourquoi : Sur le rendu capturé, plusieurs textes fonctionnels (sous-titres explicatifs, mention légale, confirmation de disponibilité) sont sous 4,5:1.
+
+CE QUE TU DOIS FAIRE
+Corriger après vérification sur le produit réel : foncer le gris des textes secondaires et le vert de confirmation pour atteindre 4,5:1.
+
+CRITÈRE DE RÉUSSITE
+Contre-mesure faite sur le produit réel ; tous les textes fonctionnels atteignent 4,5:1.
+
+RÈGLES À RESPECTER
+- dist/RULES-color.md — Contraste — seuils testés : 4.5:1 texte courant (WCAG 1.4.3)
+- dist/RULES-accessibility.md — Qui porte quoi — contraste : RULES-color
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>Sur le rendu capturé, plusieurs textes fonctionnels (sous-titres explicatifs, mention légale, confirmation de disponibilité) sont sous 4,5:1.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Corriger après vérification sur le produit réel : foncer le gris des textes secondaires et le vert de confirmation pour atteindre 4,5:1.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-color.md</code><span>Contraste — seuils testés : 4.5:1 texte courant (WCAG 1.4.3)</span></li><li><code>dist/RULES-accessibility.md</code><span>Qui porte quoi — contraste : RULES-color</span></li></ul></details>
+      </div>
+    </article><article class="linear-issue tone-fix" id="sf-E005-F02" data-finding="F02" data-screen="E005">
+      <span class="figma-number" aria-hidden="true">2</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>Le bouton « Continue » reste désactivé tant que le champ est vide</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E005-F02" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E005-F02">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Teste cette hypothèse avant de modifier le parcours audité de création de compte : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E005 — Saisie e-mail — état vide
+- Problème : Le bouton « Continue » reste désactivé tant que le champ est vide
+- Pourquoi : La cause de la désactivation reste déductible (champ vide), mais aucun message d’aide n&#039;est disponible lors d’un appui.
+
+CE QUE TU DOIS FAIRE
+Tester le comportement lors d’un appui sur le bouton désactivé dans le produit réel ; si rien ne se passe, passer au bouton actif avec message d&#039;erreur quand on appuie — en cohérence avec l&#039;écran âge (E011) qui montre déjà un bouton principal actif.
+
+CRITÈRE DE RÉUSSITE
+Comportement au tap défini et documenté ; une seule stratégie de CTA sur tout le tunnel.
+
+RÈGLES À RESPECTER
+- dist/RULES-form.md — Coordination bouton/champs — bouton de soumission actif en permanence, jamais de bouton désactivé comme mécanisme de validation
+- dist/RULES-button.md — États — disabled silencieux proscrit : toute désactivation expose sa cause
+
+MARCHE À SUIVRE
+1. Repère l’implémentation et les états concernés dans le projet ouvert.
+2. Décris le test minimal permettant de confirmer ou d’infirmer l’hypothèse.
+3. Exécute les vérifications possibles sans modifier le comportement produit.
+4. Conclus clairement : hypothèse confirmée, infirmée ou encore indécidable.
+5. N’applique une modification que si le test la justifie sans ambiguïté ; sinon, indique la décision ou la preuve qui manque.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>La cause de la désactivation reste déductible (champ vide), mais aucun message d’aide n&#039;est disponible lors d’un appui.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Tester le comportement lors d’un appui sur le bouton désactivé dans le produit réel ; si rien ne se passe, passer au bouton actif avec message d&#039;erreur quand on appuie — en cohérence avec l&#039;écran âge (E011) qui montre déjà un bouton principal actif.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-form.md</code><span>Coordination bouton/champs — bouton de soumission actif en permanence, jamais de bouton désactivé comme mécanisme de validation</span></li><li><code>dist/RULES-button.md</code><span>États — disabled silencieux proscrit : toute désactivation expose sa cause</span></li></ul></details>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E006" role="tabpanel" aria-labelledby="workspace-tab-E006" hidden>
+      <header class="workspace-panel-head"><div><span>Page 06</span><h2>Saisie e-mail — état rempli</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Saisie e-mail — état rempli</span></div></div><figcaption><a href="evidence.html#O06">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E007" role="tabpanel" aria-labelledby="workspace-tab-E007" hidden>
+      <header class="workspace-panel-head"><div><span>Page 07</span><h2>Choix du mot de passe — état vide</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Choix du mot de passe — état vide</span></div></div><figcaption><a href="evidence.html#O07">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-fix"><header><h3>À corriger</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E007-fix" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E007-fix">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Annoncer la règle du mot de passe dès l&#039;état vide
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E007 — Choix du mot de passe — état vide
+- Problème : Les règles du mot de passe ne sont pas affichées avant la saisie
+- Pourquoi : Sur les écrans capturés, la contrainte n&#039;apparaît qu&#039;après saisie.
+
+CE QUE TU DOIS FAIRE
+Afficher « Au moins 8 caractères » dès l&#039;état vide.
+
+CRITÈRE DE RÉUSSITE
+La contrainte est lisible dès l&#039;état vide (ou dès le focus, comportement vérifié et documenté).
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Identité et moyen d&#039;authentification — contraintes annoncées avant la saisie (WCAG 3.3.2, niveau A)
+- dist/RULES-creation-compte-force-mot-de-passe.md — Contraintes annoncées avant la saisie
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-fix" id="sf-E007-F03" data-finding="F03" data-screen="E007">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>Aucune contrainte annoncée à l&#039;état vide</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E007-F03" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E007-F03">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Annoncer la règle du mot de passe dès l&#039;état vide
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E007 — Choix du mot de passe — état vide
+- Problème : Les règles du mot de passe ne sont pas affichées avant la saisie
+- Pourquoi : Sur les écrans capturés, la contrainte n&#039;apparaît qu&#039;après saisie.
+
+CE QUE TU DOIS FAIRE
+Afficher « Au moins 8 caractères » dès l&#039;état vide.
+
+CRITÈRE DE RÉUSSITE
+La contrainte est lisible dès l&#039;état vide (ou dès le focus, comportement vérifié et documenté).
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Identité et moyen d&#039;authentification — contraintes annoncées avant la saisie (WCAG 3.3.2, niveau A)
+- dist/RULES-creation-compte-force-mot-de-passe.md — Contraintes annoncées avant la saisie
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>Sur les écrans capturés, la contrainte n&#039;apparaît qu&#039;après saisie.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Afficher « Au moins 8 caractères » dès l&#039;état vide.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-creation-compte.md</code><span>Identité et moyen d&#039;authentification — contraintes annoncées avant la saisie (WCAG 3.3.2, niveau A)</span></li><li><code>dist/RULES-creation-compte-force-mot-de-passe.md</code><span>Contraintes annoncées avant la saisie</span></li></ul></details>
+      </div>
+    </article><article class="linear-issue linear-issue-echo tone-fix" id="sf-E007-F02" data-finding="F02" data-screen="E007">
+      <span class="figma-number" aria-hidden="true">2</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>Le bouton « Continue » reste désactivé tant que le champ est vide</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Saisie e-mail — état vide » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E005" data-workspace-finding="F02">Voir</button></p>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E008" role="tabpanel" aria-labelledby="workspace-tab-E008" hidden>
+      <header class="workspace-panel-head"><div><span>Page 08</span><h2>Choix du mot de passe — état rempli (règle 8 caractères affichée)</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Choix du mot de passe — état rempli (règle 8 caractères affichée)</span></div></div><figcaption><a href="evidence.html#O08">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-check"><header><h3>À vérifier</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E008-check" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E008-check">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Seuil de 8 caractères sous le minimum NIST si le mot de passe est le seul facteur
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E008 — Choix du mot de passe — état rempli (règle 8 caractères affichée)
+- Problème : Huit caractères peuvent être insuffisants si aucun second facteur ne protège le compte
+- Pourquoi : La conformité dépend de l&#039;existence d&#039;une double authentification, non observable dans la pellicule.
+
+CE QUE TU DOIS FAIRE
+Vérifier si Cosmos propose une authentification multifacteur ; sans double authentification, relever le minimum vers 15 caractères conformément à NIST SP 800-63B-4.
+
+CRITÈRE DE RÉUSSITE
+Décision documentée : MFA confirmée (8 acceptable) ou minimum relevé vers 15.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-force-mot-de-passe.md — NIST SP 800-63B-4 — 15 caractères en facteur unique, 8 acceptés seulement avec MFA
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-decide" id="sf-E008-F04" data-finding="F04" data-screen="E008">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>« Au moins 8 caractères » : seuil à conditionner à la double authentification</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E008-F04" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E008-F04">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Seuil de 8 caractères sous le minimum NIST si le mot de passe est le seul facteur
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E008 — Choix du mot de passe — état rempli (règle 8 caractères affichée)
+- Problème : Huit caractères peuvent être insuffisants si aucun second facteur ne protège le compte
+- Pourquoi : La conformité dépend de l&#039;existence d&#039;une double authentification, non observable dans la pellicule.
+
+CE QUE TU DOIS FAIRE
+Vérifier si Cosmos propose une authentification multifacteur ; sans double authentification, relever le minimum vers 15 caractères conformément à NIST SP 800-63B-4.
+
+CRITÈRE DE RÉUSSITE
+Décision documentée : MFA confirmée (8 acceptable) ou minimum relevé vers 15.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-force-mot-de-passe.md — NIST SP 800-63B-4 — 15 caractères en facteur unique, 8 acceptés seulement avec MFA
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>La conformité dépend de l&#039;existence d&#039;une double authentification, non observable dans la pellicule.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Vérifier si Cosmos propose une authentification multifacteur ; sans double authentification, relever le minimum vers 15 caractères conformément à NIST SP 800-63B-4.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-creation-compte-force-mot-de-passe.md</code><span>NIST SP 800-63B-4 — 15 caractères en facteur unique, 8 acceptés seulement avec MFA</span></li></ul></details>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E009" role="tabpanel" aria-labelledby="workspace-tab-E009" hidden>
+      <header class="workspace-panel-head"><div><span>Page 09</span><h2>Nom complet — état vide</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Nom complet — état vide</span></div></div><figcaption><a href="evidence.html#O09">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-fix"><header><h3>À corriger</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E009-fix" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E009-fix">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Teste cette hypothèse avant de modifier le parcours audité de création de compte : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E009 — Nom complet — état vide
+- Problème : Le bouton « Continue » reste désactivé tant que le champ est vide
+- Pourquoi : La cause de la désactivation reste déductible (champ vide), mais aucun message d’aide n&#039;est disponible lors d’un appui.
+
+CE QUE TU DOIS FAIRE
+Tester le comportement lors d’un appui sur le bouton désactivé dans le produit réel ; si rien ne se passe, passer au bouton actif avec message d&#039;erreur quand on appuie — en cohérence avec l&#039;écran âge (E011) qui montre déjà un bouton principal actif.
+
+CRITÈRE DE RÉUSSITE
+Comportement au tap défini et documenté ; une seule stratégie de CTA sur tout le tunnel.
+
+RÈGLES À RESPECTER
+- dist/RULES-form.md — Coordination bouton/champs — bouton de soumission actif en permanence, jamais de bouton désactivé comme mécanisme de validation
+- dist/RULES-button.md — États — disabled silencieux proscrit : toute désactivation expose sa cause
+
+MARCHE À SUIVRE
+1. Repère l’implémentation et les états concernés dans le projet ouvert.
+2. Décris le test minimal permettant de confirmer ou d’infirmer l’hypothèse.
+3. Exécute les vérifications possibles sans modifier le comportement produit.
+4. Conclus clairement : hypothèse confirmée, infirmée ou encore indécidable.
+5. N’applique une modification que si le test la justifie sans ambiguïté ; sinon, indique la décision ou la preuve qui manque.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue linear-issue-echo tone-fix" id="sf-E009-F02" data-finding="F02" data-screen="E009">
+      <span class="figma-number" aria-hidden="true">2</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>Le bouton « Continue » reste désactivé tant que le champ est vide</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Saisie e-mail — état vide » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E005" data-workspace-finding="F02">Voir</button></p>
+      </div>
+    </article></div></section><section class="workspace-review workspace-review-check"><header><h3>À vérifier</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E009-check" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E009-check">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E009 — Nom complet — état vide
+- Problème : Le bouton Retour disparaît sur certains écrans
+- Pourquoi : L&#039;incohérence est visible mais peut être un effet du cadrage des captures.
+
+CE QUE TU DOIS FAIRE
+Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CRITÈRE DE RÉUSSITE
+Retour présent (ou absence justifiée) à chaque étape ; saisie conservée à l&#039;aller-retour.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Machine à états du parcours — retour sans perte ; la mécanique multi-écran appartient à form-multi-step
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-decide" id="sf-E009-F11" data-finding="F11" data-screen="E009">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>Pas de retour visible à cette étape</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E009-F11" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E009-F11">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E009 — Nom complet — état vide
+- Problème : Le bouton Retour disparaît sur certains écrans
+- Pourquoi : L&#039;incohérence est visible mais peut être un effet du cadrage des captures.
+
+CE QUE TU DOIS FAIRE
+Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CRITÈRE DE RÉUSSITE
+Retour présent (ou absence justifiée) à chaque étape ; saisie conservée à l&#039;aller-retour.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Machine à états du parcours — retour sans perte ; la mécanique multi-écran appartient à form-multi-step
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>L&#039;incohérence est visible mais peut être un effet du cadrage des captures.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-creation-compte.md</code><span>Machine à états du parcours — retour sans perte ; la mécanique multi-écran appartient à form-multi-step</span></li></ul></details>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E010" role="tabpanel" aria-labelledby="workspace-tab-E010" hidden>
+      <header class="workspace-panel-head"><div><span>Page 10</span><h2>Nom complet — état rempli</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Nom complet — état rempli</span></div></div><figcaption><a href="evidence.html#O10">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E011" role="tabpanel" aria-labelledby="workspace-tab-E011" hidden>
+      <header class="workspace-panel-head"><div><span>Page 11</span><h2>Âge — valeur « 25 » affichée en gris</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Âge — valeur « 25 » affichée en gris</span></div></div><figcaption><a href="evidence.html#O11">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-check"><header><h3>À vérifier</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E011-check" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E011-check">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Âge exact demandé en champ libre : minimisation et age-gating non arbitrés visiblement
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E011 — Âge — valeur « 25 » affichée en gris
+- Problème : L’application demande l’âge exact sans expliquer s’il est indispensable
+- Pourquoi : La donnée demandée (âge exact) excède visiblement les deux finalités possibles.
+
+CE QUE TU DOIS FAIRE
+Clarifier la finalité (personnalisation vs seuil légal), réduire la donnée demandée en conséquence, et documenter le parcours sous le seuil d&#039;âge.
+
+CRITÈRE DE RÉUSSITE
+Finalité de l&#039;âge clarifiée avec le juridique ; donnée réduite en conséquence.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-consentement.md — Vérification d&#039;âge sobre et minimisation — ne pas stocker plus que nécessaire
+- dist/RULES-creation-compte.md — Le minimum viable d&#039;un compte — tout le reste est du profil
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.
+
+---
+
+Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E011 — Âge — valeur « 25 » affichée en gris
+- Problème : L’écran affiche « 25 » comme un exemple, mais le bouton « Continue » est déjà actif
+- Pourquoi : Un exemple affiché dans le champ qui imite une valeur plausible (« 25 ») sur un écran sans label de champ, et une stratégie de bouton principal incohérente avec le reste du parcours.
+
+CE QUE TU DOIS FAIRE
+Vérifier le comportement réel (que se passe-t-il si on tape Continue sur E011 sans saisir ?) ; unifier la stratégie de bouton principal sur tout le tunnel ; ne pas utiliser une valeur plausible comme exemple affiché dans le champ d&#039;un champ numérique.
+
+CRITÈRE DE RÉUSSITE
+Comportement réel de l&#039;écran âge vérifié ; placeholder non ambigu ; stratégie CTA unifiée.
+
+RÈGLES À RESPECTER
+- dist/RULES-input.md — Contextes — label toujours visible, jamais en placeholder seul ; états [default, focus, filled]
+- dist/RULES-form.md — Coordination bouton/champs — stratégie unique par produit
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue tone-decide" id="sf-E011-F17" data-finding="F17" data-screen="E011">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>Âge exact demandé : minimisation à arbitrer</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E011-F17" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E011-F17">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Âge exact demandé en champ libre : minimisation et age-gating non arbitrés visiblement
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E011 — Âge — valeur « 25 » affichée en gris
+- Problème : L’application demande l’âge exact sans expliquer s’il est indispensable
+- Pourquoi : La donnée demandée (âge exact) excède visiblement les deux finalités possibles.
+
+CE QUE TU DOIS FAIRE
+Clarifier la finalité (personnalisation vs seuil légal), réduire la donnée demandée en conséquence, et documenter le parcours sous le seuil d&#039;âge.
+
+CRITÈRE DE RÉUSSITE
+Finalité de l&#039;âge clarifiée avec le juridique ; donnée réduite en conséquence.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-consentement.md — Vérification d&#039;âge sobre et minimisation — ne pas stocker plus que nécessaire
+- dist/RULES-creation-compte.md — Le minimum viable d&#039;un compte — tout le reste est du profil
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>La donnée demandée (âge exact) excède visiblement les deux finalités possibles.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Clarifier la finalité (personnalisation vs seuil légal), réduire la donnée demandée en conséquence, et documenter le parcours sous le seuil d&#039;âge.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-creation-compte-consentement.md</code><span>Vérification d&#039;âge sobre et minimisation — ne pas stocker plus que nécessaire</span></li><li><code>dist/RULES-creation-compte.md</code><span>Le minimum viable d&#039;un compte — tout le reste est du profil</span></li></ul></details>
+      </div>
+    </article><article class="linear-issue tone-decide" id="sf-E011-F10" data-finding="F10" data-screen="E011">
+      <span class="figma-number" aria-hidden="true">2</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head">
+          <div><strong>« 25 » gris = gris des sous-titres : exemple affiché dans le champ probable, bouton principal déjà actif</strong></div>
+          <div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-linear-E011-F10" aria-live="polite">Prompt</button>
+    <template id="prompt-linear-E011-F10">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E011 — Âge — valeur « 25 » affichée en gris
+- Problème : L’écran affiche « 25 » comme un exemple, mais le bouton « Continue » est déjà actif
+- Pourquoi : Un exemple affiché dans le champ qui imite une valeur plausible (« 25 ») sur un écran sans label de champ, et une stratégie de bouton principal incohérente avec le reste du parcours.
+
+CE QUE TU DOIS FAIRE
+Vérifier le comportement réel (que se passe-t-il si on tape Continue sur E011 sans saisir ?) ; unifier la stratégie de bouton principal sur tout le tunnel ; ne pas utiliser une valeur plausible comme exemple affiché dans le champ d&#039;un champ numérique.
+
+CRITÈRE DE RÉUSSITE
+Comportement réel de l&#039;écran âge vérifié ; placeholder non ambigu ; stratégie CTA unifiée.
+
+RÈGLES À RESPECTER
+- dist/RULES-input.md — Contextes — label toujours visible, jamais en placeholder seul ; états [default, focus, filled]
+- dist/RULES-form.md — Coordination bouton/champs — stratégie unique par produit
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div>
+        </div>
+        <p><b>Pourquoi</b><span>Un exemple affiché dans le champ qui imite une valeur plausible (« 25 ») sur un écran sans label de champ, et une stratégie de bouton principal incohérente avec le reste du parcours.</span></p>
+        <p class="linear-solution"><b>À faire</b><span>Vérifier le comportement réel (que se passe-t-il si on tape Continue sur E011 sans saisir ?) ; unifier la stratégie de bouton principal sur tout le tunnel ; ne pas utiliser une valeur plausible comme exemple affiché dans le champ d&#039;un champ numérique.</span></p>
+        <details class="linear-rule"><summary>Comprendre la règle</summary><ul><li><code>dist/RULES-input.md</code><span>Contextes — label toujours visible, jamais en placeholder seul ; états [default, focus, filled]</span></li><li><code>dist/RULES-form.md</code><span>Coordination bouton/champs — stratégie unique par produit</span></li></ul></details>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E012" role="tabpanel" aria-labelledby="workspace-tab-E012" hidden>
+      <header class="workspace-panel-head"><div><span>Page 12</span><h2>Âge — valeur « 25 » affichée en noir</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Âge — valeur « 25 » affichée en noir</span></div></div><figcaption><a href="evidence.html#O12">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-check"><header><h3>À vérifier</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E012-check" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E012-check">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Unifier la stratégie des boutons Continue
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E012 — Âge — valeur « 25 » affichée en noir
+- Problème : L’écran affiche « 25 » comme un exemple, mais le bouton « Continue » est déjà actif
+- Pourquoi : Un exemple affiché dans le champ qui imite une valeur plausible (« 25 ») sur un écran sans label de champ, et une stratégie de bouton principal incohérente avec le reste du parcours.
+
+CE QUE TU DOIS FAIRE
+Vérifier le comportement réel (que se passe-t-il si on tape Continue sur E011 sans saisir ?) ; unifier la stratégie de bouton principal sur tout le tunnel ; ne pas utiliser une valeur plausible comme exemple affiché dans le champ d&#039;un champ numérique.
+
+CRITÈRE DE RÉUSSITE
+Comportement réel de l&#039;écran âge vérifié ; placeholder non ambigu ; stratégie CTA unifiée.
+
+RÈGLES À RESPECTER
+- dist/RULES-input.md — Contextes — label toujours visible, jamais en placeholder seul ; états [default, focus, filled]
+- dist/RULES-form.md — Coordination bouton/champs — stratégie unique par produit
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.
+
+---
+
+Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Âge exact demandé en champ libre : minimisation et age-gating non arbitrés visiblement
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E012 — Âge — valeur « 25 » affichée en noir
+- Problème : L’application demande l’âge exact sans expliquer s’il est indispensable
+- Pourquoi : La donnée demandée (âge exact) excède visiblement les deux finalités possibles.
+
+CE QUE TU DOIS FAIRE
+Clarifier la finalité (personnalisation vs seuil légal), réduire la donnée demandée en conséquence, et documenter le parcours sous le seuil d&#039;âge.
+
+CRITÈRE DE RÉUSSITE
+Finalité de l&#039;âge clarifiée avec le juridique ; donnée réduite en conséquence.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte-consentement.md — Vérification d&#039;âge sobre et minimisation — ne pas stocker plus que nécessaire
+- dist/RULES-creation-compte.md — Le minimum viable d&#039;un compte — tout le reste est du profil
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue linear-issue-echo tone-decide" id="sf-E012-F10" data-finding="F10" data-screen="E012">
+      <span class="figma-number figma-number-nopin" title="Constat présent sur cet écran, sans repère ponctuel sur la capture" aria-hidden="true" style="background:transparent">•</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>L’écran affiche « 25 » comme un exemple, mais le bouton « Continue » est déjà actif</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Âge — valeur « 25 » affichée en gris » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E011" data-workspace-finding="F10">Voir</button></p>
+      </div>
+    </article><article class="linear-issue linear-issue-echo tone-decide" id="sf-E012-F17" data-finding="F17" data-screen="E012">
+      <span class="figma-number figma-number-nopin" title="Constat présent sur cet écran, sans repère ponctuel sur la capture" aria-hidden="true" style="background:transparent">•</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>L’application demande l’âge exact sans expliquer s’il est indispensable</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Âge — valeur « 25 » affichée en gris » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E011" data-workspace-finding="F17">Voir</button></p>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E013" role="tabpanel" aria-labelledby="workspace-tab-E013" hidden>
+      <header class="workspace-panel-head"><div><span>Page 13</span><h2>Pseudo — état rempli, disponibilité confirmée</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Pseudo — état rempli, disponibilité confirmée</span></div></div><figcaption><a href="evidence.html#O13">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-fix"><header><h3>À corriger</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E013-fix" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E013-fix">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Corrige ce point du parcours audité de création de compte : Foncer les textes gris et le vert de confirmation
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E013 — Pseudo — état rempli, disponibilité confirmée
+- Problème : Plusieurs textes sont trop peu contrastés pour être lus facilement
+- Pourquoi : Sur le rendu capturé, plusieurs textes fonctionnels (sous-titres explicatifs, mention légale, confirmation de disponibilité) sont sous 4,5:1.
+
+CE QUE TU DOIS FAIRE
+Corriger après vérification sur le produit réel : foncer le gris des textes secondaires et le vert de confirmation pour atteindre 4,5:1.
+
+CRITÈRE DE RÉUSSITE
+Contre-mesure faite sur le produit réel ; tous les textes fonctionnels atteignent 4,5:1.
+
+RÈGLES À RESPECTER
+- dist/RULES-color.md — Contraste — seuils testés : 4.5:1 texte courant (WCAG 1.4.3)
+- dist/RULES-accessibility.md — Qui porte quoi — contraste : RULES-color
+
+MARCHE À SUIVRE
+1. Repère l’implémentation concernée dans le projet ouvert.
+2. Explique brièvement ce que tu vas modifier.
+3. Applique le changement minimal nécessaire sans refondre le reste du parcours.
+4. Vérifie les états associés et les régressions évidentes.
+5. Termine par la liste des fichiers modifiés et le résultat des vérifications.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue linear-issue-echo tone-fix" id="sf-E013-F09" data-finding="F09" data-screen="E013">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>Plusieurs textes sont trop peu contrastés pour être lus facilement</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Saisie e-mail — état vide » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E005" data-workspace-finding="F09">Voir</button></p>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E014" role="tabpanel" aria-labelledby="workspace-tab-E014" hidden>
+      <header class="workspace-panel-head"><div><span>Page 14</span><h2>Intérêts — 0/3 sélectionnés</h2></div></header>
+      <div class="workspace-stage">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Intérêts — 0/3 sélectionnés</span></div></div><figcaption><a href="evidence.html#O14">Voir la preuve détaillée</a></figcaption></figure>
+        <div class="workspace-review-stack"><section class="workspace-review workspace-review-check"><header><h3>À vérifier</h3><div class="prompt-control">
+    <button type="button" class="copy-prompt" data-copy-target="prompt-workspace-E014-check" aria-live="polite">Prompt</button>
+    <template id="prompt-workspace-E014-check">Tu travailles dans le projet produit actuellement ouvert.
+
+MISSION
+Vérifie ce point avant de modifier le produit : Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CONTEXTE DE L’AUDIT
+- Parcours : Création de compte — Cosmos (iOS)
+- Écran(s) : E014 — Intérêts — 0/3 sélectionnés
+- Problème : Le bouton Retour disparaît sur certains écrans
+- Pourquoi : L&#039;incohérence est visible mais peut être un effet du cadrage des captures.
+
+CE QUE TU DOIS FAIRE
+Vérifier sur produit réel la présence du retour à chaque étape et la conservation des saisies lors d&#039;un aller-retour.
+
+CRITÈRE DE RÉUSSITE
+Retour présent (ou absence justifiée) à chaque étape ; saisie conservée à l&#039;aller-retour.
+
+RÈGLES À RESPECTER
+- dist/RULES-creation-compte.md — Machine à états du parcours — retour sans perte ; la mécanique multi-écran appartient à form-multi-step
+
+MARCHE À SUIVRE
+1. Repère dans le projet les éléments capables de confirmer ce point.
+2. Distingue ce que le code prouve de ce qui dépend encore du produit, du métier ou d’un test réel.
+3. Présente la décision attendue et les options possibles en termes simples.
+4. N’applique aucune modification tant que l’information ou l’arbitrage nécessaire manque.
+5. Termine par ce qui est confirmé, ce qui reste à décider et la prochaine action utile.
+
+Si le code, le contexte produit ou une décision nécessaire manque, n’invente pas : explique précisément ce qui bloque avant de modifier.</template>
+  </div></header><div class="workspace-issues"><article class="linear-issue linear-issue-echo tone-decide" id="sf-E014-F11" data-finding="F11" data-screen="E014">
+      <span class="figma-number" aria-hidden="true">1</span>
+      <div class="linear-issue-content">
+        <div class="linear-issue-head"><div><strong>Le bouton Retour disparaît sur certains écrans</strong></div></div>
+        <p class="linear-echo-note"><span>Même défaut que sur « Nom complet — état vide » — le détail, la règle et le prompt sont là-bas.</span><button type="button" class="workspace-flow-link" data-workspace-target="E009" data-workspace-finding="F11">Voir</button></p>
+      </div>
+    </article></div></section></div>
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E015" role="tabpanel" aria-labelledby="workspace-tab-E015" hidden>
+      <header class="workspace-panel-head"><div><span>Page 15</span><h2>Intérêts — 3/3 sélectionnés</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>Intérêts — 3/3 sélectionnés</span></div></div><figcaption><a href="evidence.html#O15">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section><section class="workspace-panel" id="workspace-panel-E016" role="tabpanel" aria-labelledby="workspace-tab-E016" hidden>
+      <header class="workspace-panel-head"><div><span>Page 16</span><h2>fil de contenu d&#039;accueil — coach mark « Hold elements to save »</h2></div></header>
+      <div class="workspace-stage no-issues">
+        <figure class="workspace-figure"><div class="figma-screen-shot"><div class="ph"><b>Visuel privé</b><span>fil de contenu d&#039;accueil — coach mark « Hold elements to save »</span></div></div><figcaption><a href="evidence.html#O16">Voir la preuve détaillée</a></figcaption></figure>
+        
+      </div>
+    </section></div>
+      </section>
+      <div hidden aria-hidden="true"><span id="panel-flow"></span><span id="panel-E001"></span><span id="panel-E002"></span><span id="panel-E003"></span><span id="panel-E004"></span><span id="panel-E005"></span><span id="panel-E006"></span><span id="panel-E007"></span><span id="panel-E008"></span><span id="panel-E009"></span><span id="panel-E010"></span><span id="panel-E011"></span><span id="panel-E012"></span><span id="panel-E013"></span><span id="panel-E014"></span><span id="panel-E015"></span><span id="panel-E016"></span></div>
+    </main>
+  <footer><div class="wrap">Design System Audit est séparé de la documentation. Il utilise une version déclarée des règles et conserve ses propres preuves.</div></footer>
+  <script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function sv(el, opts){ try { el.scrollIntoView(Object.assign({behavior: reduced ? 'auto' : 'smooth'}, opts || {})); } catch(e) { el.scrollIntoView(); } }
+  var workspaceTabs = Array.prototype.slice.call(document.querySelectorAll('.workspace-thumb'));
+  var workspacePanels = Array.prototype.slice.call(document.querySelectorAll('.workspace-panel'));
+  var workspaceToggle = document.getElementById('workspace-toggle-all');
+  var workspaceAll = false;
+  function visibleWorkspaceTabs(){ return workspaceTabs.filter(function(tab){ return !tab.hidden; }); }
+  function setWorkspaceMode(showAll){
+    if (false) showAll = true;
+    workspaceAll = showAll;
+    workspaceTabs.forEach(function(tab){ tab.hidden = !showAll && tab.classList.contains('workspace-optional'); });
+    if (workspaceToggle) {
+      workspaceToggle.setAttribute('aria-expanded', showAll ? 'true' : 'false');
+      workspaceToggle.textContent = showAll ? 'Afficher uniquement les pages à modifier' : 'Afficher tout le flow (16)';
+    }
+  }
+  function selectWorkspace(view, moveRail){
+    var nextTab = document.getElementById('workspace-tab-' + view);
+    var nextPanel = document.getElementById('workspace-panel-' + view);
+    if (!nextTab || !nextPanel) return;
+    if (nextTab.hidden) setWorkspaceMode(true);
+    workspaceTabs.forEach(function(tab){
+      var on = tab === nextTab;
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+    });
+    workspacePanels.forEach(function(panel){ panel.hidden = panel !== nextPanel; });
+    if (moveRail !== false) {
+      try { nextTab.scrollIntoView({behavior: reduced ? 'auto' : 'smooth',block:'nearest',inline:'center'}); } catch(e) {}
+    }
+    if (history.replaceState) history.replaceState(null, '', '#screen-' + view);
+  }
+  workspaceTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){ selectWorkspace(tab.dataset.workspaceView, true); });
+  });
+  function focusWorkspaceFinding(view, findingId){
+    document.querySelectorAll('.linear-issue.active').forEach(function(el){ el.classList.remove('active'); });
+    document.querySelectorAll('.pin.hl').forEach(function(el){ el.classList.remove('hl'); });
+    var row = document.getElementById('sf-' + view + '-' + findingId);
+    if (row) { row.classList.add('active'); try { row.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'center'}); } catch(e) {} }
+    var pin = document.querySelector('.pin[data-finding="' + findingId + '"][data-screen="' + view + '"]');
+    if (pin) pin.classList.add('hl');
+  }
+  document.querySelectorAll('[data-workspace-target]').forEach(function(control){
+    control.addEventListener('click', function(){
+      selectWorkspace(control.dataset.workspaceTarget, true);
+      if (control.dataset.workspaceFinding) focusWorkspaceFinding(control.dataset.workspaceTarget, control.dataset.workspaceFinding);
+    });
+  });
+  if (workspaceToggle) workspaceToggle.addEventListener('click', function(){
+    var showAll = !workspaceAll;
+    setWorkspaceMode(showAll);
+    var selected = document.querySelector('.workspace-thumb[aria-selected="true"]');
+    if (!showAll && selected && selected.hidden) selectWorkspace('E005', true);
+  });
+  var workspaceStrip = document.querySelector('.workspace-strip');
+  if (workspaceStrip) workspaceStrip.addEventListener('keydown', function(e){
+    var navigableTabs = visibleWorkspaceTabs();
+    var current = navigableTabs.findIndex(function(tab){ return tab.getAttribute('aria-selected') === 'true'; });
+    var next = null;
+    if (e.key === 'ArrowRight') next = Math.min(navigableTabs.length - 1, current + 1);
+    else if (e.key === 'ArrowLeft') next = Math.max(0, current - 1);
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = navigableTabs.length - 1;
+    if (next !== null && navigableTabs[next]) { e.preventDefault(); selectWorkspace(navigableTabs[next].dataset.workspaceView, true); navigableTabs[next].focus({preventScroll:true}); }
+  });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.thumb'));
+  var views = { flow: document.getElementById('panel-flow') };
+  tabs.forEach(function(t){ views[t.dataset.view] = document.getElementById('panel-' + t.dataset.view); });
+  var stripSection = document.getElementById('screen-strip');
+  var strip = document.getElementById('strip');
+  var activeSlot = document.getElementById('active-slot');
+  var modeTabs = Array.prototype.slice.call(document.querySelectorAll('.mode-tab'));
+  var toggleScreens = document.getElementById('toggle-screens');
+  var allScreens = false;
+  var currentView = 'flow';
+  var currentScreen = '';
+  function visibleTabs(){ return tabs.filter(function(t){ return !t.hidden; }); }
+  function updateMode(mode){
+    modeTabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.mode === mode ? 'true' : 'false'); });
+    if (stripSection) stripSection.hidden = mode !== 'views';
+    document.body.classList.toggle('views-mode', mode === 'views');
+  }
+  function updateScreenToggle(){
+    tabs.forEach(function(t){ if (t.classList.contains('optional-view')) t.hidden = !allScreens; });
+    if (toggleScreens) {
+      toggleScreens.setAttribute('aria-expanded', allScreens ? 'true' : 'false');
+      toggleScreens.textContent = allScreens ? 'Pages à corriger' : 'Toutes les pages';
+    }
+  }
+  function showAllScreens(show){ allScreens = show; updateScreenToggle(); }
+  function alignSelectedThumb(tab){
+    if (!strip || !tab) return;
+    void tab.offsetWidth;
+    var inset = parseFloat(window.getComputedStyle(strip).paddingLeft) || 0;
+    var delta = tab.getBoundingClientRect().left - inset;
+    strip.scrollLeft = Math.max(0, strip.scrollLeft + delta);
+  }
+  function settleRail(target){
+    if (!target) return;
+    alignSelectedThumb(target);
+    window.requestAnimationFrame(function(){ alignSelectedThumb(target); });
+    window.setTimeout(function(){ alignSelectedThumb(target); }, 80);
+  }
+  function select(view){
+    if (!views[view]) return;
+    var nextTab = document.getElementById('tab-' + view);
+    if (nextTab && nextTab.hidden) showAllScreens(true);
+    var useActiveSlot = !!(nextTab && activeSlot && window.getComputedStyle(activeSlot).display !== 'none');
+    if (useActiveSlot) strip.insertBefore(activeSlot, nextTab);
+    tabs.forEach(function(t){
+      var on = t.dataset.view === view;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      t.classList.toggle('active-view', on && useActiveSlot);
+    });
+    Object.keys(views).forEach(function(v){ if (views[v]) views[v].hidden = v !== view; });
+    updateMode(view === 'flow' ? 'flow' : 'views');
+    if (view !== 'flow') currentScreen = view;
+    currentView = view;
+    if (nextTab) {
+      var alignmentTarget = useActiveSlot ? activeSlot : nextTab;
+      settleRail(alignmentTarget);
+    }
+    if (history.replaceState) history.replaceState(null, '', '#panel-' + view);
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('mousedown', function(e){ e.preventDefault(); });
+    t.addEventListener('click', function(){
+      select(t.dataset.view);
+      t.blur();
+    });
+  });
+  modeTabs.forEach(function(t){ t.addEventListener('click', function(){
+    if (t.dataset.mode === 'flow') select('flow');
+    else {
+      var firstVisible = visibleTabs()[0];
+      var target = currentScreen && document.getElementById('tab-' + currentScreen) && !document.getElementById('tab-' + currentScreen).hidden ? currentScreen : (document.getElementById('tab-E005') && !document.getElementById('tab-E005').hidden ? 'E005' : (firstVisible ? firstVisible.dataset.view : ''));
+      if (target) select(target);
+    }
+  }); });
+  if (toggleScreens) toggleScreens.addEventListener('click', function(){
+    showAllScreens(!allScreens);
+    var selected = tabs.find(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+    if (selected && selected.hidden && visibleTabs()[0]) select(visibleTabs()[0].dataset.view);
+    else if (selected) {
+      var alignmentTarget = activeSlot && window.getComputedStyle(activeSlot).display !== 'none' ? activeSlot : selected;
+      settleRail(alignmentTarget);
+    }
+  });
+  updateScreenToggle();
+  if (strip) strip.addEventListener('keydown', function(e){
+    var currentTabs = visibleTabs();
+    var i = currentTabs.findIndex(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+    if (i < 0) i = 0;
+    var next = null;
+    if (e.key === 'ArrowRight') next = Math.min(currentTabs.length - 1, i + 1);
+    else if (e.key === 'ArrowLeft') next = Math.max(0, i - 1);
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = currentTabs.length - 1;
+    if (next !== null && currentTabs[next]) { e.preventDefault(); select(currentTabs[next].dataset.view); }
+  });
+  ['prev', 'next'].forEach(function(dir){
+    var b = document.getElementById('strip-' + dir);
+    if (b) b.addEventListener('click', function(){
+      var currentTabs = visibleTabs();
+      var i = currentTabs.findIndex(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+      if (i < 0) i = 0;
+      var next = dir === 'next' ? Math.min(currentTabs.length - 1, i + 1) : Math.max(0, i - 1);
+      if (currentTabs[next]) { select(currentTabs[next].dataset.view); }
+    });
+  });
+  window.addEventListener('resize', function(){
+    var selected = tabs.find(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+    if (selected) alignSelectedThumb(selected, true);
+  });
+  function highlightPins(screen, finding){
+    document.querySelectorAll('.pin').forEach(function(p){
+      p.classList.toggle('hl', p.dataset.screen === screen && p.dataset.finding === finding);
+    });
+  }
+  function activateCard(screen, finding, focus){
+    var card = document.getElementById('sf-' + screen + '-' + finding);
+    document.querySelectorAll('.figma-issue-row.active,.linear-issue.active').forEach(function(c){ c.classList.remove('active'); });
+    if (card) {
+      card.classList.add('active');
+      sv(card, {block: 'nearest'});
+      if (focus) { card.tabIndex = -1; card.focus(); }
+    }
+    highlightPins(screen, finding);
+  }
+  document.querySelectorAll('.pin').forEach(function(pin){
+    pin.addEventListener('click', function(){ activateCard(pin.dataset.screen, pin.dataset.finding, true); });
+  });
+  var atabs = Array.prototype.slice.call(document.querySelectorAll('.atab'));
+  function selectAtab(id){
+    atabs.forEach(function(t){
+      var on = t.id === 'atab-' + id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    document.querySelectorAll('[data-atab]').forEach(function(p){ p.hidden = p.dataset.atab !== id; });
+  }
+  atabs.forEach(function(t){ t.addEventListener('click', function(){ selectAtab(t.id.replace('atab-', '')); }); });
+  var atablist = document.querySelector('.atabs');
+  if (atablist) atablist.addEventListener('keydown', function(e){
+    var i = atabs.findIndex(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+    var next = null;
+    if (e.key === 'ArrowRight') next = (i + 1) % atabs.length;
+    else if (e.key === 'ArrowLeft') next = (i - 1 + atabs.length) % atabs.length;
+    if (next !== null) { e.preventDefault(); selectAtab(atabs[next].id.replace('atab-', '')); atabs[next].focus(); }
+  });
+  function openAction(id, focus){
+    var row = document.getElementById(id);
+    if (!row || !row.classList.contains('action-row')) return false;
+    var panel = row.closest('[data-atab]');
+    if (panel) selectAtab(panel.dataset.atab);
+    row.open = true;
+    sv(row, {block: 'start'});
+    if (focus !== false) row.querySelector('summary').focus();
+    return true;
+  }
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a.open-action');
+    if (link) {
+      var id = (link.getAttribute('href') || '').slice(1);
+      if (openAction(id)) e.preventDefault();
+      return;
+    }
+    var chip = e.target.closest('.goto-screen');
+    if (chip) {
+      select(chip.dataset.screen);
+      var f = chip.dataset.finding;
+      if (f) window.requestAnimationFrame(function(){ activateCard(chip.dataset.screen, f, false); });
+      var panel = views[chip.dataset.screen];
+      if (panel) sv(panel, {block: 'start'});
+    }
+  });
+  window.copyPrompt = function(button){
+    var source = document.getElementById(button.dataset.copyTarget);
+    if (!source) return;
+    var value = source.content ? source.content.textContent : (source.value || source.textContent || '');
+    function showToast(message, type){
+      var toast = document.getElementById('copy-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'copy-toast';
+        toast.className = 'copy-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.setAttribute('aria-atomic', 'true');
+        document.body.appendChild(toast);
+      }
+      window.clearTimeout(window.copyToastTimer);
+      toast.className = 'copy-toast' + (type === 'error' ? ' error' : '');
+      toast.textContent = message;
+      void toast.offsetWidth;
+      toast.classList.add('show');
+      window.copyToastTimer = window.setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+    }
+    function done(){
+      showToast('Prompt copié', 'success');
+    }
+    function failed(){
+      var manual = button.parentElement.querySelector('.manual-copy');
+      if (!manual) {
+        manual = document.createElement('textarea');
+        manual.className = 'manual-copy';
+        manual.setAttribute('readonly', '');
+        manual.setAttribute('aria-label', 'Prompt prêt à copier manuellement');
+        button.parentElement.appendChild(manual);
+      }
+      manual.value = value;
+      manual.focus();
+      manual.select();
+      showToast('Copie automatique impossible — prompt sélectionné, appuyez sur ⌘C', 'error');
+    }
+    var copied = false;
+    try {
+      var fallback = document.createElement('textarea');
+      fallback.value = value;
+      fallback.setAttribute('readonly', '');
+      fallback.style.position = 'fixed';
+      fallback.style.left = '-9999px';
+      document.body.appendChild(fallback);
+      fallback.select();
+      copied = document.execCommand('copy');
+      fallback.remove();
+      button.focus();
+    } catch (err) {}
+    if (copied) { done(); return; }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(value).then(done).catch(failed);
+    } else failed();
+  };
+  document.querySelectorAll('.copy-prompt').forEach(function(button){
+    button.addEventListener('click', function(){ window.copyPrompt(button); });
+  });
+  function applyHash(){
+    var h = window.location.hash.slice(1);
+    if (h.indexOf('screen-') === 0) { selectWorkspace(h.slice(7), false); return; }
+    if (h.indexOf('panel-') === 0) { select(h.slice(6)); return; }
+    if (/^F\d+/.test(h) || /^NR\d+/.test(h)) { openAction(h, false); return; }
+  }
+  if (window.location.hash) applyHash(); else if (workspaceTabs.length) selectWorkspace('flow', false); else select('flow');
+  window.addEventListener('hashchange', applyHash);
+})();
+</script>
+</body>
+</html>
